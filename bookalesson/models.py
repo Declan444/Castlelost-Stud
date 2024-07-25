@@ -28,4 +28,18 @@ class LessonDate(models.Model):
     end_time = models.TimeField()
     slug = models.SlugField(unique=True, blank=True)
 
+class BookingDate(models.Model):
+    STATUS_CHOICES = (
+        ('pending', 'Pending Approval'),
+        ('approved', 'Approved'),
+        ('cancelled', 'Cancelled'),
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lesson_date = models.ForeignKey(LessonDate, on_delete=models.CASCADE)
+    lesson_type = models.ForeignKey(LessonType, on_delete=models.CASCADE)
+    instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+    booking_date = models.DateTimeField(auto_now_add=True)
+
 
