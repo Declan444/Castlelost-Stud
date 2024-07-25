@@ -5,4 +5,5 @@ from .models import Lessons
 
 # Create your views here.
 class LessonTypesList(generic.ListView):
-    model = Lessons
+    queryset = Lessons.objects.all()
+    template_name = 'lessons_list.html'
