@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def my_lesson(request):
-    return HttpResponse("Welcome to Castlelost Stud. Home of the best riding lessons")
+    return HttpResponse("Welcome to Castlelost Stud. Home of Holly lenahan")
