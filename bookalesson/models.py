@@ -6,9 +6,10 @@ class Instructor(models.Model):
     name = models.CharField(max_length=200)
     bio = models.TextField()
     slug = models.SlugField(max_length=200, unique=True)
+    updated_on = models.DateTimeField(auto_now=True)
 
 class LessonType(models.Model):
-    LEVEL_CHOICES = (
+    LESSON_CHOICES = (
         ('beginner', 'Beginner'),
         ('intermediate', 'Intermediate'),
         ('advanced', 'Advanced'),
@@ -16,8 +17,15 @@ class LessonType(models.Model):
 
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    level = models.CharField(max_length=20, choices=LEVEL_CHOICES)
+    lesson_choices = models.CharField(max_length=20, choices=LESSON_CHOICES)
     instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE, related_name='lesson_types')
     content = models.TextField()
+    excerpt = models.TextField(blank=True)
+
+class LessonDate(models.Model):
+    date = models.DateField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    slug = models.SlugField(unique=True, blank=True)
 
 

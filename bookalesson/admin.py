@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import LessonType, Instructor
+from .models import LessonType, Instructor, LessonDate
 
 # Register your models here.
 admin.site.register(LessonType)
 admin.site.register(Instructor)
+admin.site.register(LessonDate)
