@@ -16,10 +16,10 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-from bookalesson.views import my_lesson
+from django.urls import path, include
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('bookalesson/', my_lesson, name='lesson')
+    path('', include("bookalesson.urls"), name="bookalesson.urls"),
 ]

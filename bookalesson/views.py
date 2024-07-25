@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Lessons
+
 
 # Create your views here.
-def my_lesson(request):
-    return HttpResponse("Welcome to Castlelost Stud. Home of Holly lenahan")
+class LessonTypesList(generic.ListView):
+    model = Lessons
