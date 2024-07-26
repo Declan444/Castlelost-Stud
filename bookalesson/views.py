@@ -7,4 +7,4 @@ from .models import Lessons
 class LessonTypesList(generic.ListView):
     queryset = Lessons.objects.all()
     template_name = 'bookalesson/index.html'
-    paginate_by = 4
+    
