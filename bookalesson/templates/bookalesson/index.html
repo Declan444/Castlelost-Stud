@@ -18,7 +18,7 @@
                                     <p class="author">{{ lessons.instructor }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
+                            <a href="{% url 'lessons_detail' lessons.slug %}" class="post-link">
                                 <h2 class="card-title">{{ lessons.title }}</h2>
                             </a>
 
