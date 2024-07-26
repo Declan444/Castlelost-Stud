@@ -6,4 +6,5 @@ from .models import Lessons
 # Create your views here.
 class LessonTypesList(generic.ListView):
     queryset = Lessons.objects.all()
-    template_name = 'lessons_list.html'
+    template_name = 'bookalesson/index.html'
+    paginate_by = 4
