@@ -22,7 +22,7 @@ body {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: #0a0b72;
 }
 
 .main-bg {
@@ -113,18 +113,18 @@ body {
 
 .btn-signup,
 .btn-edit {
-    background-color: #188181;
+    background-color: #0c0a6e;
     color: #fff;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
+    background-color: #118fe4;
+    color: #0c0a6e;
 }
 
 .link {
-    color: #23BBBB;
+    color: #8b8adf;
     text-decoration: none;
 }
 
