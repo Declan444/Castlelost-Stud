@@ -1,5 +1,9 @@
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
+
+def get_default_lesson_date():
+    return timezone.now().date()
 
 # Create your models here.
 class Instructor(models.Model):
@@ -11,7 +15,7 @@ class Instructor(models.Model):
     def __str__(self):
         return f"Instructor: {self.name}"
 
-class Lessons(models.Model):
+class Lesson(models.Model):
     LESSON_CHOICES = (
         ('beginner', 'Beginner'),
         ('intermediate', 'Intermediate'),
@@ -37,7 +41,7 @@ class LessonDate(models.Model):
     def __str__(self):
         return f"Lesson on {self.date} from {self.start_time} to {self.end_time}"
 
-class Bookings(models.Model):
+class Booking(models.Model):
     STATUS_CHOICES = (
         ('pending', 'Pending Approval'),
         ('approved', 'Approved'),
@@ -46,7 +50,7 @@ class Bookings(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     lesson_date = models.ForeignKey(LessonDate, on_delete=models.CASCADE)
-    lesson_type = models.ForeignKey(Lessons, on_delete=models.CASCADE)
+    lesson_type = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     booking_date = models.DateTimeField(auto_now_add=True)
@@ -54,10 +58,12 @@ class Bookings(models.Model):
     def __str__(self):
         return f"Booking by {self.user.username} for {self.lesson_type} with {self.instructor.name}"
 
+
 class CommentOnLesson(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    lesson_type = models.ForeignKey(Lessons, on_delete=models.CASCADE)
+    lesson_type = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='comments')
     text = models.TextField()
+    
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
@@ -65,8 +71,12 @@ class CommentOnLesson(models.Model):
         constraints = [
             models.UniqueConstraint(fields=['author', 'lesson_type'], name='unique_user_lesson_comment')
         ]
-    
+
     def __str__(self):
-         return f"Comment by {self.author} on {self.lesson_type.title}"
+        return f"Comment by {self.author} on {self.lesson_type.title}"
+
+
+
+
 
 

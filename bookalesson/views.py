@@ -1,23 +1,34 @@
-from django.shortcuts import render, get_object_or_404
+from typing import Any
+from django.db.models.query import QuerySet
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
-from .models import Lessons
+
+from .models import Lesson 
+
+
+
 
 
 # Create your views here.
-class LessonTypesList(generic.ListView):
-    queryset = Lessons.objects.all()
+class LessonList(generic.ListView):
+    model = Lesson
     template_name = 'bookalesson/index.html'
+    context_object_name = 'lessons_list'
 
+    def get_queryset(self):
+        return Lesson.objects.all
+
+#def lesson_list(request):
+#    lessons = Lesson.objects.all()
+#    return render(request, 'bookalesson/index.html', {'lesson_list': lessons})
 
 def lessons_detail(request, slug):
     
-
-    queryset = Lessons.objects.all()
+    queryset = Lesson.objects.all()
     lesson = get_object_or_404(queryset, slug=slug)
 
     return render(
         request,
         "bookalesson/lessons_detail.html",
-        {"lessons": lesson},
+        {"lesson": lesson,},
     )
-    

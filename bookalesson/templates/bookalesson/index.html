@@ -9,21 +9,21 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for lessons in lessons_list %}
+                {% for lesson in lessons_list %}
                 <div class="col-md-3">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
                                 <div class="image-flash">
-                                    <p class="author">{{ lessons.instructor }}</p>
+                                    <p class="author">{{ lesson.instructor.name }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'lessons_detail' lessons.slug %}" class="post-link">
-                                <h2 class="card-title">{{ lessons.title }}</h2>
+                            <a href="{% url 'lessons_detail' lesson.slug %}" class="post-link">
+                                <h2 class="card-title">{{ lesson.title }}</h2>
                             </a>
 
                             <hr />
-                            <p class="card-text text-muted h6">{{ lessons.excerpt}}
+                            <p class="card-text text-muted h6">{{ lesson.excerpt|safe}}
                             </p>
                         </div>
                     </div>

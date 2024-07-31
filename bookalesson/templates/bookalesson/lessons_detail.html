@@ -6,9 +6,9 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ lessons.title }}</h1>
+                <h1 class="post-title">{{ lesson.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ lessons.instructor }}</p>
+                <p class="post-subtitle">{{ lesson.instructor }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <img src="{% static 'images/khal.jpg' %}" class="scale" alt="placeholder">
@@ -24,11 +24,9 @@
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text">
-                    {{ lessons.content | safe }}
+                    {{ lesson.content | safe }}
                 </p>
             </div>
         </div>
-    </div>
-</div>
-
+    </div>    
 {% endblock content %}
