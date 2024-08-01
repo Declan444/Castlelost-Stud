@@ -26,9 +26,15 @@ def lessons_detail(request, slug):
     
     queryset = Lesson.objects.all()
     lesson = get_object_or_404(queryset, slug=slug)
-
+    comments = lesson.comments.all().order_by("-created_on")
+    comment_count = lesson.comments.filter(approved=True).count()
     return render(
         request,
         "bookalesson/lessons_detail.html",
-        {"lesson": lesson,},
+        {
+            "lesson": lesson,
+            "comments": comments,
+            "comment_count": comment_count,
+         
+         },
     )
