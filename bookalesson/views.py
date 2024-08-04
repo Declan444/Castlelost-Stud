@@ -15,7 +15,7 @@ from .forms import CommentForm
 # Create your views here.
 class LessonList(generic.ListView):
     model = Lesson
-    template_name = 'bookalesson/index.html'
+    template_name = 'bookalesson/lessons.html'
     context_object_name = 'lessons_list'
 
     def get_queryset(self):
@@ -55,7 +55,7 @@ def lessons_detail(request, slug):
                 lesson_date=lesson_date
             ).exists():
                 # if commented on this lesson show message
-                messages.error(request, "You have already commented on this lesson.")
+                messages.error(request, "You have already commented on this lesson date.")
                 return redirect('lessons_detail', slug=slug)
             # save comment
             comment.save()
