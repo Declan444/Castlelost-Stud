@@ -2,6 +2,8 @@ from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
+
+
 def get_default_lesson_date():
     return timezone.now().date()
 
@@ -37,7 +39,8 @@ class LessonDate(models.Model):
     start_time = models.TimeField()
     end_time = models.TimeField()
     slug = models.SlugField(unique=True, blank=True)
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='lesson_dates')  
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='lesson_dates')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='booked_lesson_dates')
 
     def __str__(self):
         return f"{self.lesson.title} on {self.date} from {self.start_time} to {self.end_time}"
