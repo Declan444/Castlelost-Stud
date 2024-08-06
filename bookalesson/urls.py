@@ -8,7 +8,7 @@ urlpatterns = [
     path('book-a-lesson/', TemplateView.as_view(template_name='book_a_lesson.html'), name='book_a_lesson'),
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
     path('lessons/', LessonList.as_view(), name='lessons'),   
-    path('<slug:slug>/', lessons_detail, name='lessons_detail'),
-     
+    path('<slug:slug>/', views.lessons_detail, name='lessons_detail'),
+    path('<slug:slug>/edit_comment/<int:comment_id>',views.comment_edit, name='comment_edit'),
     
 ]

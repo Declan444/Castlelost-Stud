@@ -1,10 +1,10 @@
 
 from django.db.models.query import QuerySet
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 
 from django.views import generic
 from django.contrib import messages
-
+from django.http import HttpResponseRedirect
 from .models import Lesson, CommentOnLesson, LessonDate 
 from .forms import CommentForm
 
@@ -78,3 +78,33 @@ def lessons_detail(request, slug):
             "comment_form": comment_form,
         }
     )
+
+def comment_edit(request, slug, comment_id):
+    """
+    View to edit comments
+    """
+    post = get_object_or_404(Lesson, slug=slug)
+    comment = get_object_or_404(CommentOnLesson, pk=comment_id)
+    lesson_dates = LessonDate.objects.filter(lesson=post)  # Adjust this query to get the relevant lesson dates
+
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST, instance=comment, lesson_dates=lesson_dates)
+
+        if comment_form.is_valid() and comment.author == request.user:
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.approved = False
+            comment.save()
+            messages.success(request, 'Comment updated successfully!')
+            return redirect(reverse('lessons_detail', args=[slug]))
+        else:
+            messages.error(request, 'Error updating comment! Please ensure all fields are correctly filled.')
+    else:
+        comment_form = CommentForm(instance=comment, lesson_dates=lesson_dates)
+
+    context = {
+        'comment_form': comment_form,
+        'lesson': post,
+        'comment': comment,
+    }
+    return render(request, 'lesson_details.html', context)
