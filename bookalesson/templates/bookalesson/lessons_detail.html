@@ -11,13 +11,33 @@
             </div>
             <div class="modal-body">
                 {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                        {{ message }}
-                    </div>
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                </div>
                 {% endfor %}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete your comment?
+                This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
             </div>
         </div>
     </div>
@@ -89,8 +109,8 @@
                     </p>
                     {% endif %}
                     {% if user.is_authenticated and comment.author == user %}
-                    <button class="btn btn-edit"
-                      comment_id="{{ comment.id }}">Edit</button>
+                    <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
+                    <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
                     {% endif %}
                 </div>
                 {% endfor %}
@@ -101,19 +121,19 @@
             <div class="card-body">
                 {% if user.is_authenticated %}
                 {% if comment_form.fields.lesson_date.queryset %}
-                    {% if existing_comment %}
-                        <p>You have already submitted a comment for this lesson.</p>
-                    {% else %}
-                        <h3>Leave a comment:</h3>
-                        <p>Posting as: {{ user.username }}</p>
-                        <form id="commentForm" method="post" style="margin-top: 1.3em;">
-                            {{ comment_form|crispy }}
-                            {% csrf_token %}
-                            <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
-                        </form>
-                    {% endif %}
+                {% if existing_comment %}
+                <p>You have already submitted a comment for this lesson.</p>
                 {% else %}
-                    <p>No lesson dates available for this lesson. You cannot leave a comment.</p>
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form id="commentForm" method="post" style="margin-top: 1.3em;">
+                    {{ comment_form|crispy }}
+                    {% csrf_token %}
+                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                </form>
+                {% endif %}
+                {% else %}
+                <p>No lesson dates available for this lesson. You cannot leave a comment.</p>
                 {% endif %}
                 {% else %}
                 <p>Log in to leave a comment</p>

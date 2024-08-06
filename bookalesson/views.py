@@ -85,7 +85,7 @@ def comment_edit(request, slug, comment_id):
     """
     post = get_object_or_404(Lesson, slug=slug)
     comment = get_object_or_404(CommentOnLesson, pk=comment_id)
-    lesson_dates = LessonDate.objects.filter(lesson=post)  # Adjust this query to get the relevant lesson dates
+    lesson_dates = LessonDate.objects.filter(lesson=post)  
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST, instance=comment, lesson_dates=lesson_dates)
@@ -108,3 +108,21 @@ def comment_edit(request, slug, comment_id):
         'comment': comment,
     }
     return render(request, 'lesson_details.html', context)
+
+def comment_delete(request, slug, comment_id):
+    """
+    View to delete a comment.
+    """
+    # Retrieve the Lesson and Comment instances
+    post = get_object_or_404(Lesson, slug=slug)
+    comment = get_object_or_404(CommentOnLesson, pk=comment_id)
+
+    # Check if the current user is the author of the comment
+    if comment.author == request.user:
+        comment.delete()
+        messages.success(request, 'Comment deleted successfully!')
+    else:
+        messages.error(request, 'You can only delete your own comments!')
+
+    # Redirect to the post detail page
+    return redirect(reverse('lessons_detail', args=[slug]))
