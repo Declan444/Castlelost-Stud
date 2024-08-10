@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h2>Available Time Slots for {{ date }}</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Time Slot</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for slot in time_slots %}
+        <tr>
+            <td>{{ slot }}</td>
+            <td>
+                <!-- link to booking form  -->
+                <a href="{% url 'booking_form' date=date slot=slot %}">Book a Lesson</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

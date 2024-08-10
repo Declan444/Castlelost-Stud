@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Book a Lesson</h1>
+
+<h2>Calendar for {{ year }}-{{ month }}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for week in month_days %}
+        <tr>
+            {% for day in week %}
+            <td>
+                {% if day %}
+                {% with day|stringformat:'02d' as day_formatted %}
+                {% with month|stringformat:'02d' as month_formatted %}
+                <!-- Build the date string in DD-MM format and not dd-mm-yyyy as caused problems-->
+                <a href="{% url 'timeslots_for_date' date=day_formatted|add:'-'|add:month_formatted %}">{{ day }}</a>
+                {% endwith %}
+                {% endwith %}
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

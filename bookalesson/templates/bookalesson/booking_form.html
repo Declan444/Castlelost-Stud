@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Booking for {{ lesson_date.lesson.title }} on {{ lesson_date.date }} from {{ lesson_date.start_time }} to {{ lesson_date.end_time }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="lesson_type">Select Lesson Type</label>
+        <select name="lesson_type" id="lesson_type" class="form-control">
+            {% for lesson in lessons %}
+                <option value="{{ lesson.id }}">{{ lesson.title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="instructor">Select Instructor</label>
+        <select name="instructor" id="instructor" class="form-control">
+            {% for instructor in instructors %}
+                <option value="{{ instructor.id }}">{{ instructor.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Book Now</button>
+</form>
+
+{% endblock %}

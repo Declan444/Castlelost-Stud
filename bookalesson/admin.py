@@ -16,8 +16,12 @@ class LessonsAdmin(SummernoteModelAdmin):
 class LessonDateAdmin(admin.ModelAdmin):
     list_display = ('date', 'start_time', 'end_time', 'lesson', 'user')
 
-# Register your models here.
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('user', 'lesson_date', 'lesson_type', 'instructor', 'status', 'booking_date')
+    list_filter = ('status', 'lesson_date', 'lesson_type', 'instructor')
+    search_fields = ('user__username', 'lesson_type__title', 'instructor__name')
+
+
 admin.site.register(Instructor)
-#admin.site.register(LessonDate)
-admin.site.register(Booking)
 admin.site.register(CommentOnLesson)

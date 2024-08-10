@@ -177,4 +177,57 @@ body {
     border-color: #f5c6cb;
     color: #721c24;
 }
-  
+
+/* calendar style */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center; /* Center align text */
+}
+.calendar-container {
+    display: inline-block; /* Shrink to fit content and center */
+    text-align: left; /* Align text to left inside container */
+    margin-top: 20px; /* Space above the calendar */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; /* Center the table */
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+td {
+    height: 100px; /* Adjust the height for square-like cells */
+    vertical-align: top;
+}
+thead {
+    background-color: #f4f4f4;
+}
+
+/* timeslots */
+
+.time-slots-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between boxes */
+    justify-content: center; /* Center the boxes horizontally */
+}
+
+.time-slot-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    width: 100px; /* Width of each box */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Indicate that it’s clickable */
+    transition: background-color 0.3s ease;
+}
+
+.time-slot-box:hover {
+    background-color: #e0e0e0;
+}
