@@ -21,7 +21,10 @@ class BookingAdmin(admin.ModelAdmin):
     list_display = ('user', 'lesson_date', 'lesson_type', 'instructor', 'status', 'booking_date')
     list_filter = ('status', 'lesson_date', 'lesson_type', 'instructor')
     search_fields = ('user__username', 'lesson_type__title', 'instructor__name')
-
-
+@admin.register(CommentOnLesson)
+class CommentOnLessonAdmin(admin.ModelAdmin):
+    list_display = ('author', 'lesson_type', 'lesson_date', 'text', 'created_on', 'approved')
+    list_filter = ('created_on', 'approved', 'lesson_type', 'lesson_date')
+    
+    
 admin.site.register(Instructor)
-admin.site.register(CommentOnLesson)

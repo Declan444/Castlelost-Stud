@@ -31,7 +31,7 @@ class LessonList(generic.ListView):
 def lessons_detail(request, slug):
     lesson = get_object_or_404(Lesson, slug=slug)
     
-    # show all the lesson dates for the specific user if authenticated
+    # how all the lesson dates for the specific user if authenticated
     if request.user.is_authenticated:
         lesson_dates = LessonDate.objects.filter(lesson=lesson, user=request.user).order_by('date', 'start_time')
     else:
@@ -199,26 +199,28 @@ def booking_form(request, date, slot):
     print(f"Received date: {date}, slot: {slot}")
 
     try:
-        # change timeslot to time format
+        # Convert slot to time format
         slot_time = datetime.strptime(slot, '%H:%M').time()
-        print(f"Slot time parsed: {slot_time}")
+        # Calculate end time as one hour later
+        end_time = (datetime.combine(datetime.today(), slot_time) + timedelta(hours=1)).time()
+        print(f"Slot time parsed: {slot_time}, End time calculated: {end_time}")
     except ValueError:
         print(f"Invalid time format for slot: {slot}")
         raise Http404("Invalid time format")
 
-    # check if the LessonDate already exists or create a new one
+    # Check if the LessonDate already exists or create a new one
     lesson_date, created = LessonDate.objects.get_or_create(
         date=date,
         start_time=slot_time,
         defaults={
-            'end_time': slot_time, 
+            'end_time': end_time, 
             'lesson': Lesson.objects.first(), 
             'slug': f"{date}-{slot.replace(':', '-')}",
             'user': request.user  
         }
     )
     if created:
-        # create a unique slug if the LessonDate is newly created
+        # Create a unique slug if the LessonDate is newly created
         lesson_date.slug = f"{date}-{slot.replace(':', '-')}"
         while LessonDate.objects.filter(slug=lesson_date.slug).exists():
             lesson_date.slug = f"{date}-{slot.replace(':', '-')}-{LessonDate.objects.count()}"
@@ -231,7 +233,7 @@ def booking_form(request, date, slot):
             messages.error(request, "You need to log in to make a booking.")
             return redirect('login')
 
-        # get selected lesson and instructor from POST data
+        # Get selected lesson and instructor from POST data
         lesson_id = request.POST.get('lesson_type')
         instructor_id = request.POST.get('instructor')
 
@@ -242,13 +244,13 @@ def booking_form(request, date, slot):
             messages.error(request, "Selected lesson or instructor does not exist.")
             return redirect('book_a_lesson')
 
-        # check if the slot is already booked
+        # Check if the slot is already booked
         existing_booking = Booking.objects.filter(lesson_date=lesson_date).exists()
         if existing_booking:
             messages.error(request, "This time slot is already booked.")
             return redirect('book_a_lesson')
 
-        # create a new booking
+        # Create a new booking
         booking = Booking(
             user=user,
             lesson_date=lesson_date,
@@ -257,7 +259,7 @@ def booking_form(request, date, slot):
         )
         booking.save()
 
-        # generate a detailed success message
+        # Generate a detailed success message
         success_message = (
             f"Your booking for the lesson '{lesson.title}' with instructor '{instructor.name}' "
             f"on {date} from {slot_time} to {lesson_date.end_time} has been received and is pending approval by the instructor."
@@ -265,7 +267,7 @@ def booking_form(request, date, slot):
         messages.success(request, success_message)
         return redirect('book_a_lesson')
 
-    # get all lessons and instructors for the form
+    # Get all lessons and instructors for the form
     lessons = Lesson.objects.all()
     instructors = Instructor.objects.all()
 

@@ -231,3 +231,57 @@ thead {
 .time-slot-box:hover {
     background-color: #e0e0e0;
 }
+
+/* Hero Section */
+.hero-section {
+    background: url('/static/images/khal.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section .display-4 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
+
+.hero-section .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 12px 24px;
+    font-size: 1.25rem;
+}
+
+.hero-section .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card i {
+    color: #007bff;
+}
+
+/* CTA Section */
+.cta {
+    background-color: #f8f9fa;
+}
+
+.cta .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    padding: 12px 24px;
+    font-size: 1.25rem;
+}
+
+.cta .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
