@@ -1,5 +1,5 @@
 
-
+import logging
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import Http404
@@ -133,9 +133,11 @@ def comment_delete(request, slug, comment_id):
     
     return redirect(reverse('lessons_detail', args=[slug]))
 
-def book_a_lesson(request):
-    today = datetime.now().date()
+logger = logging.getLogger(__name__)
 
+def book_a_lesson(request):
+    today = datetime.now().date()  
+    formatted_today = today.strftime('%d-%m-%Y')  # Format today as dd-mm-yyyy
     # Retrieve year and month
     year = request.GET.get('year', today.year)
     month = request.GET.get('month', today.month)
@@ -146,7 +148,7 @@ def book_a_lesson(request):
     except ValueError:
         return HttpResponseBadRequest("Invalid year or month.")
 
-    # Ensure month is within valid range
+    # Ensure month is in valid range
     if month < 1 or month > 12:
         return HttpResponseBadRequest("Month must be between 1 and 12.")
 
@@ -177,7 +179,7 @@ def book_a_lesson(request):
         'next_year': next_year,
         'next_month': next_month,
         'month_days': month_days,
-        'today': today,
+        'today': today,  
     }
 
     return render(request, 'bookalesson/book_a_lesson.html', context)
@@ -186,13 +188,13 @@ def book_a_lesson(request):
 
 def timeslots_for_date(request, date):
     try:
-        # Expecting date in YYYY-MM-DD format
-        date_obj = datetime.strptime(date, '%Y-%m-%d').date()
+        # Expecting date in dd-mm-yyyy format
+        date_obj = datetime.strptime(date, '%d-%m-%Y').date()
         year = date_obj.year
         month = date_obj.month
         day = date_obj.day
     except ValueError:
-        return HttpResponseBadRequest("Invalid date format. Expected YYYY-MM-DD.")
+        return HttpResponseBadRequest("Invalid date format. Expected dd-mm-yyyy.")
 
     # Set the time slots from 8 AM to 6 PM
     start_time = datetime(year, month, day, 8, 0)

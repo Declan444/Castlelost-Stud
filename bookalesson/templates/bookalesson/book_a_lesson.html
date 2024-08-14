@@ -39,14 +39,25 @@
             {% for day in week %}
             <td>
                 {% if day %}
-                    {% with date_obj=day|date:"Y-m-d" %}
-                        {% with current_date=year|add:"-"|add:month|stringformat:"02d"|add:"-"|add:day|stringformat:"02d"|date:"Y-m-d" %}
-                            {% if current_date < today|date:"Y-m-d" %}
+                    {% with day_formatted=day|stringformat:"02d" %}
+                    {% with month_formatted=month|stringformat:"02d" %}
+                    {% with year_formatted=year|stringformat:"04d" %}
+                    {% with day_date=day_formatted|add:"-"|add:month_formatted|add:"-"|add:year_formatted %}
+                        {% with formatted_today=today|date:"d-m-Y" %}
+                            <!-- Debug Output -->
+                            <div class="debug">
+                                Day Date: {{ day_date }}<br>
+                                Today: {{ formatted_today }}<br>
+                            </div>
+                            {% if day_date < formatted_today %}
                                 <span class="past-date">{{ day }}</span>
                             {% else %}
-                                <a href="{% url 'timeslots_for_date' date=date_obj %}">{{ day }}</a>
+                                <a href="{% url 'timeslots_for_date' date=day_date %}">{{ day }}</a>
                             {% endif %}
                         {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
                     {% endwith %}
                 {% endif %}
             </td>
