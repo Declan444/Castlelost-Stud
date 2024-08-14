@@ -4,7 +4,23 @@
 {% block content %}
 <h1>Book a Lesson</h1>
 
-<h2>Calendar for {{ year }}-{{ month }}</h2>
+<h2>Calendar for {{ month|stringformat:"02d" }}-{{ year }}</h2>
+
+<div>
+    <!-- Navigation links -->
+    {% if month > 1 %}
+        <a href="{% url 'book_a_lesson' %}?year={{ year }}&month={{ month|add:"-1" }}" class="nav-link">Previous Month</a>
+    {% else %}
+        <a href="{% url 'book_a_lesson' %}?year={{ year|add:"-1" }}&month=12" class="nav-link">Previous Month</a>
+    {% endif %}
+    
+    {% if month < 12 %}
+        <a href="{% url 'book_a_lesson' %}?year={{ year }}&month={{ month|add:"1" }}" class="nav-link">Next Month</a>
+    {% else %}
+        <a href="{% url 'book_a_lesson' %}?year={{ year|add:"1" }}&month=1" class="nav-link">Next Month</a>
+    {% endif %}
+</div>
+
 <table>
     <thead>
         <tr>
@@ -25,8 +41,13 @@
                 {% if day %}
                 {% with day|stringformat:'02d' as day_formatted %}
                 {% with month|stringformat:'02d' as month_formatted %}
-                <!-- Build the date string in DD-MM format and not dd-mm-yyyy as caused problems-->
-                <a href="{% url 'timeslots_for_date' date=day_formatted|add:'-'|add:month_formatted %}">{{ day }}</a>
+                {% with year|stringformat:'04d' as year_formatted %}
+                <!-- Build the date string in YYYY-MM-DD format for proper URL parameter -->
+                {% with date_str=year_formatted|add:"-"|add:month_formatted|add:"-"|add:day_formatted %}
+                    <!-- Build the link URL -->
+                    <a href="{% url 'timeslots_for_date' date=date_str %}">{{ day }}</a>
+                {% endwith %}
+                {% endwith %}
                 {% endwith %}
                 {% endwith %}
                 {% endif %}
@@ -36,4 +57,5 @@
         {% endfor %}
     </tbody>
 </table>
+
 {% endblock %}

@@ -12,12 +12,15 @@
         </tr>
     </thead>
     <tbody>
-        {% for slot in time_slots %}
+        {% for slot in slots_with_status %}
         <tr>
-            <td>{{ slot }}</td>
+            <td>{{ slot.time }}</td>
             <td>
-                <!-- link to booking form  -->
-                <a href="{% url 'booking_form' date=date slot=slot %}">Book a Lesson</a>
+                {% if slot.is_booked %}
+                    <span class="inactive">Booked</span>
+                {% else %}
+                    <a href="{% url 'booking_form' date=date slot=slot.time %}">Book a Lesson</a>
+                {% endif %}
             </td>
         </tr>
         {% endfor %}

@@ -158,40 +158,42 @@ def book_a_lesson(request):
 
 def timeslots_for_date(request, date):
     try:
-        day, month = map(int, date.split('-'))
-        year = datetime.now().year  
-        date_obj = datetime(year, month, day).date()
+        # Expecting date in YYYY-MM-DD format
+        date_obj = datetime.strptime(date, '%Y-%m-%d').date()
+        year = date_obj.year
+        month = date_obj.month
+        day = date_obj.day
     except ValueError:
-        return HttpResponseBadRequest("Invalid date format. Expected DD-MM.")
+        return HttpResponseBadRequest("Invalid date format. Expected YYYY-MM-DD.")
 
-    # set the time slots from 8 AM to 6 PM
+    # Set the time slots from 8 AM to 6 PM
     start_time = datetime(year, month, day, 8, 0)
     end_time = datetime(year, month, day, 18, 0)
     time_slots = []
-    
+
     current_time = start_time
     while current_time <= end_time:
-        time_slots.append(current_time.time()) 
+        time_slots.append(current_time.time())
         current_time += timedelta(hours=1)
-    
-    # get booked slots for the selected date
+
+    # Get booked slots for the selected date
     booked_slots = LessonDate.objects.filter(date=date_obj).values_list('start_time', 'end_time')
     
-    # dont show booked slots from the available time slots
-    available_slots = []
+    # Create a list of slots with their booking status
+    slots_with_status = []
     for slot in time_slots:
-        # check if itmeslots are within any booked time range
         is_booked = any(start <= slot < end for start, end in booked_slots)
-        if not is_booked:
-            available_slots.append(slot.strftime("%H:%M"))
-    
+        slots_with_status.append({
+            'time': slot.strftime("%H:%M"),
+            'is_booked': is_booked
+        })
+
     context = {
         'date': date_obj,
-        'time_slots': available_slots,
+        'slots_with_status': slots_with_status,
     }
 
     return render(request, 'bookalesson/timeslots.html', context)
-
 
     
 @login_required

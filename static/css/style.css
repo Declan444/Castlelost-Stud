@@ -234,7 +234,7 @@ thead {
 
 /* Hero Section */
 .hero-section {
-    background: url('/static/images/khal.jpg') no-repeat center center;
+    background: url('/static/images/khal.jpg') no-repeat top center;
     background-size: cover;
     height: 100vh;
     color: #fff;
@@ -284,4 +284,19 @@ thead {
 .cta .btn-secondary:hover {
     background-color: #5a6268;
     border-color: #545b62;
+}
+/* Change cursor to indicate inactivity in timeslots */
+.inactive {
+    color: #aaa;
+    cursor: not-allowed; 
+    text-decoration: line-through;
+}
+/* calendar nav links */
+.nav-link {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007BFF;
+}
+.nav-link:hover {
+    text-decoration: underline;
 }
