@@ -135,19 +135,50 @@ def comment_delete(request, slug, comment_id):
 
 def book_a_lesson(request):
     today = datetime.now().date()
-    year = today.year
-    month = today.month
+    
+    # Retrieve year and month 
+    year = request.GET.get('year', today.year)
+    month = request.GET.get('month', today.month)
+    
+    try:
+        year = int(year)
+        month = int(month)
+    except ValueError:
+        return HttpResponseBadRequest("Invalid year or month.")
+    
+    # Ensure month is within valid range
+    if month < 1 or month > 12:
+        return HttpResponseBadRequest("Month must be between 1 and 12.")
 
-    # create the calendar for the current month
+    # Calculate previous and next month/year
+    if month == 1:
+        prev_year = year - 1
+        prev_month = 12
+    else:
+        prev_year = year
+        prev_month = month - 1
+
+    if month == 12:
+        next_year = year + 1
+        next_month = 1
+    else:
+        next_year = year
+        next_month = month + 1
+
+    # Create the calendar for the selected month
     cal = calendar.Calendar(firstweekday=0)
     month_days = cal.monthdayscalendar(year, month)
 
-    # get LessonDates for the current month
+    # Get LessonDates for the selected month
     lesson_dates = LessonDate.objects.filter(date__year=year, date__month=month)
 
     context = {
         'year': year,
         'month': month,
+        'prev_year': prev_year,
+        'prev_month': prev_month,
+        'next_year': next_year,
+        'next_month': next_month,
         'month_days': month_days,
         'lesson_dates': lesson_dates,
     }
