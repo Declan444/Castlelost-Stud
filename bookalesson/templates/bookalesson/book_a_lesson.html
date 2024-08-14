@@ -39,17 +39,15 @@
             {% for day in week %}
             <td>
                 {% if day %}
-                {% with day|stringformat:'02d' as day_formatted %}
-                {% with month|stringformat:'02d' as month_formatted %}
-                {% with year|stringformat:'04d' as year_formatted %}
-                <!-- Build the date string in YYYY-MM-DD format for proper URL parameter -->
-                {% with date_str=year_formatted|add:"-"|add:month_formatted|add:"-"|add:day_formatted %}
-                    <!-- Build the link URL -->
-                    <a href="{% url 'timeslots_for_date' date=date_str %}">{{ day }}</a>
-                {% endwith %}
-                {% endwith %}
-                {% endwith %}
-                {% endwith %}
+                    {% with date_obj=day|date:"Y-m-d" %}
+                        {% with current_date=year|add:"-"|add:month|stringformat:"02d"|add:"-"|add:day|stringformat:"02d"|date:"Y-m-d" %}
+                            {% if current_date < today|date:"Y-m-d" %}
+                                <span class="past-date">{{ day }}</span>
+                            {% else %}
+                                <a href="{% url 'timeslots_for_date' date=date_obj %}">{{ day }}</a>
+                            {% endif %}
+                        {% endwith %}
+                    {% endwith %}
                 {% endif %}
             </td>
             {% endfor %}

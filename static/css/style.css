@@ -300,3 +300,10 @@ thead {
 .nav-link:hover {
     text-decoration: underline;
 }
+
+/* calendar past dates */
+.past-date {
+    color: gray; /* Gray out the text for past dates */
+    text-decoration: none; /* Remove underline from links */
+    pointer-events: none; /* Make past dates non-clickable */
+}
