@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_filters %}
 
 {% block content %}
-<h1>Book a Lesson</h1>
+<h1 class="page-title">Book a Lesson</h1>
 
-<h2>Calendar for {{ month|stringformat:"02d" }}-{{ year }}</h2>
+<h2 class="calendar-header">Calendar for {{ month|stringformat:"02d" }}-{{ year }}</h2>
 
-<div>
+<div class="calendar-navigation">
     <!-- Navigation links -->
     {% if month > 1 %}
         <a href="{% url 'book_a_lesson' %}?year={{ year }}&month={{ month|add:"-1" }}" class="nav-link">Previous Month</a>
@@ -21,7 +22,7 @@
     {% endif %}
 </div>
 
-<table>
+<table class="calendar-table">
     <thead>
         <tr>
             <th>Sun</th>
@@ -42,19 +43,12 @@
                     {% with day_formatted=day|stringformat:"02d" %}
                     {% with month_formatted=month|stringformat:"02d" %}
                     {% with year_formatted=year|stringformat:"04d" %}
-                    {% with day_date=day_formatted|add:"-"|add:month_formatted|add:"-"|add:year_formatted %}
-                        {% with formatted_today=today|date:"d-m-Y" %}
-                            <!-- Debug Output -->
-                            <div class="debug">
-                                Day Date: {{ day_date }}<br>
-                                Today: {{ formatted_today }}<br>
-                            </div>
-                            {% if day_date < formatted_today %}
-                                <span class="past-date">{{ day }}</span>
-                            {% else %}
-                                <a href="{% url 'timeslots_for_date' date=day_date %}">{{ day }}</a>
-                            {% endif %}
-                        {% endwith %}
+                    {% with day_date_str=day_formatted|add:"-"|add:month_formatted|add:"-"|add:year_formatted %}
+                        {% if dates_status|get_item:day_date_str %}
+                            <span class="past-date">{{ day }}</span>
+                        {% else %}
+                            <a href="{% url 'timeslots_for_date' date=day_date_str %}" class="active-date">{{ day }}</a>
+                        {% endif %}
                     {% endwith %}
                     {% endwith %}
                     {% endwith %}

@@ -1,5 +1,7 @@
+/* General Styles */
 body {
     background-color: #F9FAFC;
+    font-family: Arial, sans-serif;
 }
 
 .brand {
@@ -23,6 +25,7 @@ body {
 
 .dark-bg {
     background-color: #0a0b72;
+    color: #fff; /* Ensure text is white on dark background */
 }
 
 .main-bg {
@@ -57,6 +60,7 @@ body {
     text-transform: uppercase;
 }
 
+/* Masthead */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -70,6 +74,7 @@ body {
     background-color: #445261;
     color: white;
     position: relative;
+    z-index: 10; /* Ensure text is above background */
 }
 
 .masthead-image {
@@ -88,7 +93,7 @@ body {
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
-    z-index: 100;
+    z-index: 5; /* Behind text */
 }
 
 .post-link {
@@ -164,9 +169,10 @@ body {
     height: 33.33vh; 
     object-fit: cover; 
     object-position: center;
-  }
+}
 
-  .alert-success {
+/* Alerts */
+.alert-success {
     background-color: #d4edda;
     border-color: #c3e6cb;
     color: #155724;
@@ -178,132 +184,24 @@ body {
     color: #721c24;
 }
 
-/* calendar style */
-
-body {
-    font-family: Arial, sans-serif;
-    text-align: center; /* Center align text */
-}
-.calendar-container {
-    display: inline-block; /* Shrink to fit content and center */
-    text-align: left; /* Align text to left inside container */
-    margin-top: 20px; /* Space above the calendar */
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0 auto; /* Center the table */
-}
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-td {
-    height: 100px; /* Adjust the height for square-like cells */
-    vertical-align: top;
-}
-thead {
-    background-color: #f4f4f4;
-}
-
-/* timeslots */
-
-.time-slots-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Space between boxes */
-    justify-content: center; /* Center the boxes horizontally */
-}
-
-.time-slot-box {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-    text-align: center;
-    width: 100px; /* Width of each box */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer; /* Indicate that it’s clickable */
-    transition: background-color 0.3s ease;
-}
-
-.time-slot-box:hover {
-    background-color: #e0e0e0;
-}
-
-/* Hero Section */
-.hero-section {
-    background: url('/static/images/khal.jpg') no-repeat top center;
-    background-size: cover;
-    height: 100vh;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-section .display-4 {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-}
-
-.hero-section .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    padding: 12px 24px;
-    font-size: 1.25rem;
-}
-
-.hero-section .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-}
-
-/* Feature Cards */
-.feature-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.feature-card i {
-    color: #007bff;
-}
-
-/* CTA Section */
-.cta {
-    background-color: #f8f9fa;
-}
-
-.cta .btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    padding: 12px 24px;
-    font-size: 1.25rem;
-}
-
-.cta .btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
-}
-/* Change cursor to indicate inactivity in timeslots */
-.inactive {
-    color: #aaa;
-    cursor: not-allowed; 
-    text-decoration: line-through;
-}
-/* calendar nav links */
-.nav-link {
-    margin-right: 10px;
-    text-decoration: none;
-    color: #007BFF;
-}
-.nav-link:hover {
-    text-decoration: underline;
-}
-
-/* calendar past dates */
+/* Style for inactive dates */
 .past-date {
-    color: gray; /* Gray out the text for past dates */
-    text-decoration: none; /* Remove underline from links */
-    pointer-events: none; /* Make past dates non-clickable */
+    color: #999; /* Gray color to indicate the date is inactive */
+    background-color: #f0f0f0; /* Light gray background */
+    text-decoration: none; /* Remove underline if present */
+    cursor: not-allowed; /* Change cursor to indicate non-interactivity */
+    opacity: 0.6; /* Slightly transparent to indicate it's not clickable */
+}
+
+/* Style for active dates (optional for contrast) */
+.active-date {
+    color: #ff0095; /* Blue color for active dates */
+    text-decoration: none; /* No underline */
+    cursor: pointer; /* Pointer cursor to indicate clickability */
+}
+
+/* Optional: Style for table cells to improve visibility */
+td {
+    padding: 8px;
+    text-align: center;
 }

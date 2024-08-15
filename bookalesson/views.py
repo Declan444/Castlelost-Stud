@@ -1,5 +1,5 @@
 
-import logging
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import Http404
@@ -133,12 +133,12 @@ def comment_delete(request, slug, comment_id):
     
     return redirect(reverse('lessons_detail', args=[slug]))
 
-logger = logging.getLogger(__name__)
+
 
 def book_a_lesson(request):
-    today = datetime.now().date()  
-    formatted_today = today.strftime('%d-%m-%Y')  # Format today as dd-mm-yyyy
-    # Retrieve year and month
+    today = datetime.now().date()
+    today_date_str = today.strftime('%d-%m-%Y')
+
     year = request.GET.get('year', today.year)
     month = request.GET.get('month', today.month)
 
@@ -148,28 +148,29 @@ def book_a_lesson(request):
     except ValueError:
         return HttpResponseBadRequest("Invalid year or month.")
 
-    # Ensure month is in valid range
     if month < 1 or month > 12:
         return HttpResponseBadRequest("Month must be between 1 and 12.")
 
-    # Calculate previous and next month/year
-    if month == 1:
-        prev_year = year - 1
-        prev_month = 12
-    else:
-        prev_year = year
-        prev_month = month - 1
+    prev_year = year - 1 if month == 1 else year
+    prev_month = 12 if month == 1 else month - 1
+    next_year = year + 1 if month == 12 else year
+    next_month = 1 if month == 12 else month + 1
 
-    if month == 12:
-        next_year = year + 1
-        next_month = 1
-    else:
-        next_year = year
-        next_month = month + 1
-
-    # Create the calendar for the selected month
     cal = calendar.Calendar(firstweekday=0)
     month_days = cal.monthdayscalendar(year, month)
+
+    # Change dates_status to a dictionary
+    dates_status_dict = {}
+    for week in month_days:
+        for day in week:
+            if day:
+                day_formatted = f"{day:02d}"
+                month_formatted = f"{month:02d}"
+                year_formatted = f"{year:04d}"
+                day_date_str = f"{day_formatted}-{month_formatted}-{year_formatted}"
+                day_date = datetime.strptime(day_date_str, '%d-%m-%Y').date()
+                is_past = day_date < today
+                dates_status_dict[day_date_str] = is_past
 
     context = {
         'year': year,
@@ -179,10 +180,13 @@ def book_a_lesson(request):
         'next_year': next_year,
         'next_month': next_month,
         'month_days': month_days,
-        'today': today,  
+        'today_date_str': today_date_str,
+        'dates_status': dates_status_dict,  # Pass as a dictionary
     }
 
     return render(request, 'bookalesson/book_a_lesson.html', context)
+
+
 
 
 
