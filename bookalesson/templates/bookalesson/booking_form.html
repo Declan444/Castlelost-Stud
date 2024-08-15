@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Booking for {{ lesson_date.lesson.title }} on {{ lesson_date.date }} from {{ lesson_date.start_time }} to {{ lesson_date.end_time }}</h2>
+<h2>Booking for {{ user.username }} on {{ lesson_date.date }} from {{ lesson_date.start_time }} to {{ lesson_date.end_time }}</h2>
 
 <form method="post">
     {% csrf_token %}
