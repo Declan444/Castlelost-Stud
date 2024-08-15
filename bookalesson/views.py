@@ -248,15 +248,20 @@ def timeslots_for_date(request, date):
 def booking_form(request, date, slot):
     print(f"Received date: {date}, slot: {slot}")
     try:
+        
         # Convert slot to time format
         slot_time = datetime.strptime(slot, '%H:%M').time()
         # Calculate end time as one hour later
         end_time = (datetime.combine(datetime.today(), slot_time) + timedelta(hours=1)).time()
+        print(f"Parsed slot time: {slot_time}, End time: {end_time}")
     except ValueError:
         raise Http404("Invalid time format")
+    
+        
 
     # Retrieve or create LessonDate instance
     lesson_date = LessonDate.objects.filter(date=date, start_time=slot_time).first()
+    print(f"Retrieved lesson_date: {lesson_date}")
 
     if request.method == 'POST':
         user = request.user
@@ -268,9 +273,12 @@ def booking_form(request, date, slot):
         lesson_id = request.POST.get('lesson_type')
         instructor_id = request.POST.get('instructor')
 
+        print(f"Selected lesson_id: {lesson_id}, instructor_id: {instructor_id}")
+
         try:
             lesson = Lesson.objects.get(pk=lesson_id)
             instructor = Instructor.objects.get(pk=instructor_id)
+            print(f"Retrieved lesson: {lesson.title}, instructor: {instructor.name}")
         except (Lesson.DoesNotExist, Instructor.DoesNotExist):
             messages.error(request, "Selected lesson or instructor does not exist.")
             return redirect('book_a_lesson')
@@ -289,9 +297,11 @@ def booking_form(request, date, slot):
             while LessonDate.objects.filter(slug=lesson_date.slug).exists():
                 lesson_date.slug = f"{date}-{slot.replace(':', '-')}-{LessonDate.objects.count()}"
             lesson_date.save()
+            print(f"Created new lesson_date with slug: {lesson_date.slug}")
 
         # Check if the slot is already booked
         existing_booking = Booking.objects.filter(lesson_date=lesson_date).exists()
+        print(f"Existing booking for this lesson_date: {existing_booking}")
         if existing_booking:
             messages.error(request, "This time slot is already booked.")
             return redirect('book_a_lesson')
@@ -304,6 +314,7 @@ def booking_form(request, date, slot):
             instructor=instructor,
         )
         booking.save()
+        print(f"Created booking for user: {user.username}, lesson: {lesson.title}, instructor: {instructor.name}")
 
         # Generate a detailed success message
         success_message = (
@@ -316,6 +327,7 @@ def booking_form(request, date, slot):
     # Get all lessons and instructors for the form
     lessons = Lesson.objects.all()
     instructors = Instructor.objects.all()
+    
 
     context = {
         'lesson_date': lesson_date,
