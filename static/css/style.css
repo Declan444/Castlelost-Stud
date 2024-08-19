@@ -96,7 +96,15 @@ body {
 /* Alerts */
 .alert {
     margin-top: 1rem;
+    padding-top: 1rem; 
     border-radius: 0.25rem; /* Slightly rounded corners for alerts */
+    margin-top: calc(1rem + 70px); /* Pushes the alert down by the height of the navbar plus a bit more for spacing */
+}
+
+.alert-success {
+    color: #131715;
+    background-color: #718a7f;
+    border-color: #829b90;
 }
 
 /* Custom Button Styles */
