@@ -94,6 +94,12 @@ def comment_edit(request, slug, comment_id):
     comment = get_object_or_404(CommentOnLesson, pk=comment_id)
     lesson_dates = LessonDate.objects.filter(lesson=post)
 
+    correct_lesson_date = comment.lesson_date
+    if correct_lesson_date:
+        correct_lesson_date_str = f"{correct_lesson_date.date} from {correct_lesson_date.start_time} to {correct_lesson_date.end_time}"
+    else:
+        correct_lesson_date_str = "Not available"
+
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST, instance=comment, lesson_dates=lesson_dates)
         if comment_form.is_valid() and comment.author == request.user:
@@ -105,7 +111,11 @@ def comment_edit(request, slug, comment_id):
                 messages.success(request, 'Comment updated successfully!')
                 return redirect(reverse('lessons_detail', args=[slug]))
             except IntegrityError:
-                messages.error(request, 'You have selected an incorrect lesson date. Please try again.')
+                messages.error(
+                    request,
+                    f'You have selected an incorrect lesson date. The correct lesson date is: {correct_lesson_date_str}. '
+                    'Please ensure your lesson dates are correct and try again.'
+                )
         else:
             messages.error(request, 'Error updating comment! Please ensure all fields are correctly filled.')
     else:
@@ -116,8 +126,9 @@ def comment_edit(request, slug, comment_id):
         'lesson': post,
         'comment': comment,
         'selected_lesson_date_id': comment.lesson_date.id if comment.lesson_date else None,
+        'correct_lesson_date_str': correct_lesson_date_str,
     }
-    return render(request, 'bookalesson/lessons_detail.html', context)
+    return redirect(reverse('lessons_detail', args=[slug]))
 
 def comment_delete(request, slug, comment_id):
     """
