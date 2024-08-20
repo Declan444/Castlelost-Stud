@@ -1,5 +1,5 @@
 
-
+from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import Http404
@@ -82,6 +82,7 @@ def lessons_detail(request, slug):
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
+            
         }
     )
 
@@ -91,18 +92,20 @@ def comment_edit(request, slug, comment_id):
     """
     post = get_object_or_404(Lesson, slug=slug)
     comment = get_object_or_404(CommentOnLesson, pk=comment_id)
-    lesson_dates = LessonDate.objects.filter(lesson=post)  
+    lesson_dates = LessonDate.objects.filter(lesson=post)
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST, instance=comment, lesson_dates=lesson_dates)
-
         if comment_form.is_valid() and comment.author == request.user:
-            comment = comment_form.save(commit=False)
-            comment.post = post
-            comment.approved = False
-            comment.save()
-            messages.success(request, 'Comment updated successfully!')
-            return redirect(reverse('lessons_detail', args=[slug]))
+            try:
+                comment = comment_form.save(commit=False)
+                comment.post = post
+                comment.approved = False
+                comment.save()
+                messages.success(request, 'Comment updated successfully!')
+                return redirect(reverse('lessons_detail', args=[slug]))
+            except IntegrityError:
+                messages.error(request, 'You have selected an incorrect lesson date. Please try again.')
         else:
             messages.error(request, 'Error updating comment! Please ensure all fields are correctly filled.')
     else:
@@ -112,8 +115,9 @@ def comment_edit(request, slug, comment_id):
         'comment_form': comment_form,
         'lesson': post,
         'comment': comment,
+        'selected_lesson_date_id': comment.lesson_date.id if comment.lesson_date else None,
     }
-    return render(request, 'lesson_details.html', context)
+    return render(request, 'bookalesson/lessons_detail.html', context)
 
 def comment_delete(request, slug, comment_id):
     """

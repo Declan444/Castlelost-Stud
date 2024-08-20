@@ -78,7 +78,8 @@
                     <p class="font-weight-bold">
                         {{ comment.author }}
                         <span class="font-weight-normal">
-                            {{ comment.created_on }}
+                            {{ comment.created_on }} -
+                            <em>{{ comment.lesson_date }}</em>
                         </span> wrote:
                     </p>
                     <div id="comment{{ comment.id }}">
@@ -108,8 +109,15 @@
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
+                    
+
+
                     {{ comment_form|crispy }}
                     {% csrf_token %}
+                    
+                    
+
+                    
                     <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
                 {% endif %}
