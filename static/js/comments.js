@@ -13,14 +13,15 @@ for (let button of editButtons) {
     let commentContent = document.getElementById(`comment${commentId}`).innerText;
     commentText.value = commentContent;
     submitButton.innerText = "Update";
-    commentForm.setAttribute("action", `/${slug}/edit_comment/${commentId}/`); // Add trailing slash
+    commentForm.setAttribute("action", `edit_comment/${commentId}`);
   });
 }
 
+
 for (let button of deleteButtons) {
-  button.addEventListener("click", (e) => {
-    let commentId = e.target.getAttribute("comment_id");
-    deleteConfirm.href = `/${slug}/delete_comment/${commentId}/`; // Add trailing slash
-    deleteModal.show();
-  });
-}
+    button.addEventListener("click", (e) => {
+      let commentId = e.target.getAttribute("comment_id");
+      deleteConfirm.href = `delete_comment/${commentId}`;
+      deleteModal.show();
+    });
+  }
