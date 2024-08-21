@@ -1,44 +1,39 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 <!-- index.html content starts here -->
-<div class="container-fluid">
-    <div class="row">
-
-        <!-- Lesson Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for lesson in lessons_list %}
-                <div class="col-md-3">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                <div class="image-flash">
-                                    <p class="author">{{ lesson.instructor.name }}</p>
+<main class="flex-shrink-0 lessons-page">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Lesson Entries Column -->
+            <div class="col-12 mt-3 left">
+                <div class="row">
+                    {% for lesson in lessons_list %}
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="image-container">
+                                    <div class="image-flash">
+                                        <p class="author">{{ lesson.instructor.name }}</p>
+                                    </div>
                                 </div>
+                                <a href="{% url 'lessons_detail' lesson.slug %}" class="post-link">
+                                    <h2 class="card-title">{{ lesson.title }}</h2>
+                                </a>
+                                <hr />
+                                <p class="card-text text-muted h6">{{ lesson.excerpt|safe}}
+                                </p>
                             </div>
-                            <a href="{% url 'lessons_detail' lesson.slug %}" class="post-link">
-                                <h2 class="card-title">{{ lesson.title }}</h2>
-                            </a>
-
-                            <hr />
-                            <p class="card-text text-muted h6">{{ lesson.excerpt|safe}}
-                            </p>
                         </div>
                     </div>
+                    {% if forloop.counter|divisibleby:4 %}
                 </div>
-                {% if forloop.counter|divisibleby:4 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-
+                <div class="row">
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-    
-</div>
-
+</main>
 <!-- index.html content ends here -->
 {% endblock %}

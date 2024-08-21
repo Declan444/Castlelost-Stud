@@ -1,16 +1,14 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 <!-- index.html content starts here -->
 <main class="hero-section text-center text-white d-flex justify-content-center align-items-center">
     <div class="container">
         <h1 class="display-4 fw-bold">Welcome to Castlelost Stud</h1>
-        <p class="lead mb-4">Your journey to mastering riding skills starts here. Book one of our lessons and see the improvement.</p>
+        <p class="lead mb-4">Your journey to mastering riding skills starts here. Book one of our lessons and see the
+            improvement.</p>
         <a href="{% url 'book_a_lesson' %}" class="btn btn-primary btn-lg">Book a Lesson</a>
     </div>
 </main>
-
 <section class="features py-5">
     <div class="container text-center">
         <h2 class="fw-bold mb-5">Why Choose Us?</h2>
@@ -32,6 +30,5 @@
         </div>
     </div>
 </section>
-
 <!-- index.html content ends here -->
 {% endblock %}
