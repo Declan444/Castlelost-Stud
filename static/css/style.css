@@ -466,4 +466,35 @@ body {
         padding: 10px;
     }
 }
+/* about page */
+.about-section {
+    background-image: url('/static/images/khal.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0; 
+    color: #ffffff; 
+    }
 
+.content-box {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    border-radius: 10px; 
+    color: black;
+    border: 2px solid #445261;
+    margin: 0 15px;
+    max-width: 100%; 
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+}
+
+.about-section .text-end {
+    margin-top: 20px;
+}
