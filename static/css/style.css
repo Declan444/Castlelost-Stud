@@ -355,7 +355,7 @@ body {
 /* Title */
 .page-title {
     font-size: 2.5rem;
-    color: #445261;
+    color: white;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -363,7 +363,7 @@ body {
 /* Header */
 .calendar-header {
     font-size: 1.5rem;
-    color: #445261;
+    color: white;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -382,7 +382,7 @@ body {
 }
 
 .nav-link {
-    color: #445261;
+    color: white;
     text-decoration: none;
     font-weight: bold;
     padding: 5px 10px;
@@ -451,4 +451,17 @@ body {
     .calendar-table th, .calendar-table td {
         padding: 10px;
     }
+}
+
+.bookalesson-page {
+    background-image: url('/static/images/khal.jpg'); 
+    background-size: cover;
+    background-position:  top;
+    opacity: 0.9; /* Make the image faint */
+    min-height: 100vh; /* Ensure the background covers the full height */
+    padding-top: 20px; /* Space between the navbar and the content */
+    padding-left: 20px; 
+    padding-right: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box; /* Ensures padding doesn't affect the overall width */
 }
