@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="booking-form-section">
 <h3>Thank you {{ user.username }} for booking a lesson.</h3><br>
     <h4>Please select a lesson type and Instructor from the drop down menu below.</h4> <br>
 
@@ -25,5 +26,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Book Now</button>
 </form>
+</div>
 
 {% endblock %}
