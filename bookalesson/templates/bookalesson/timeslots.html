@@ -2,30 +2,34 @@
 {% load static %}
 
 {% block content %}
-<h2>Available Time Slots for {{ date }}</h2>
+<div class="timeslot-section">
+    <h2 class="timeslot-head">Available Time Slots for {{ date }}</h2>
+    
+        <table class="timeslot-table">
+            <thead>
+                <tr>
+                    <th>Time Slot</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for slot in slots_with_status %}
+                <tr>
+                    <td>{{ slot.time }}</td>
+                    <td>
+                        {% if slot.is_booked %}
+                        <span class="inactive">Unavailable</span>
+                        {% else %}
+                        <a href="{% url 'booking_form' date=date slot=slot.time %}">Book a Lesson</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+</div>
 
-<table>
-    <thead>
-        <tr>
-            <th>Time Slot</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for slot in slots_with_status %}
-        <tr>
-            <td>{{ slot.time }}</td>
-            <td>
-                {% if slot.is_booked %}
-                    <span class="inactive">Unavailable</span>
-                {% else %}
-                    <a href="{% url 'booking_form' date=date slot=slot.time %}">Book a Lesson</a>
-                {% endif %}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
 
 
 {% endblock %}

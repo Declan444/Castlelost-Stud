@@ -498,3 +498,81 @@ body {
 .about-section .text-end {
     margin-top: 20px;
 }
+
+/* Timeslot Page Specific Styles */
+
+/* Background Image for the Timeslot Section */
+.timeslot-section {
+    background-image: url('/static/images/khal.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0; 
+    color: #ffffff; 
+}
+.timeslot-head {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* Timeslot Table Styling */
+.timeslot-table {
+    width: 100%;
+    max-width: 90%; 
+    margin: 0 auto 20px auto; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    border-radius: 10px; 
+    color: black;
+    border: 2px solid #445261;
+    box-sizing: border-box; 
+}
+
+.timeslot-table thead th {
+    background-color: #445261;
+    color: #ffffff;
+    padding: 10px;
+    text-align: left;
+    text-align: center;
+}
+
+.timeslot-table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+.timeslot-table a {
+    color: #445261;
+    font-weight: bold;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;; 
+}
+
+
+.timeslot-table a:hover {
+    background-color: #37424f; 
+    color: #ffffff; 
+    border-radius: 5px; 
+    padding: 5px; 
+
+}
+
+/* Unavailable Slot Styling */
+.timeslot-table .inactive {
+    color: #999;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
