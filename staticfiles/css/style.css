@@ -27,7 +27,7 @@ body {
 /* Hero Section Styles */
 .hero-section {
     position: relative;
-    background: url('/static/images/khal.jpg') no-repeat center top/cover;
+    background: url('/static/images/horseandfoal.jpg') no-repeat center/cover;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -51,7 +51,7 @@ body {
 
 /* Styles for the lessons.html page */
 .lessons-page {
-    background-image: url('/static/images/khal.jpg'); 
+    background-image: url('/static/images/hollyjumping.jpg'); 
     background-size: cover;
     background-position: center;
     opacity: 0.8; /* Make the image faint */
@@ -60,11 +60,20 @@ body {
 }
 .lessons-page .card {
     background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for cards */
+    border-radius: 5%;
+    border: 2px solid #445261;
 }
 
 .lessons-page .card-title, 
 .lessons-page .card-text {
     color: #333; /* Text color for readability */
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    
+    
 }
 
 .lessons-page .card-title:hover {
@@ -365,12 +374,12 @@ body {
   .modal-body {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    justify-content: flex-start; /* Align items to the top */
-    padding: 20px; /* Adjust padding as needed */
-    max-width: 100%; /* Ensure it doesn’t overflow */
-    overflow: auto; /* Allow scrolling if content overflows */
-    box-sizing: border-box; /* Include padding and border in the element’s total width and height */
+    align-items: center; 
+    justify-content: flex-start; 
+    padding: 20px; 
+    max-width: 100%; 
+    overflow: auto; 
+    box-sizing: border-box; 
 }
 
   .alert-success {
@@ -430,11 +439,13 @@ body {
     padding: 5px 10px;
     border-radius: 5px;
     
+    
     transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-link:hover {
     background-color: #445261;
+    ;
     
     
 }
@@ -481,7 +492,7 @@ body {
 }
 
 .bookalesson-page {
-    background-image: url('/static/images/khal.jpg'); 
+    background-image: url('/static/images/hollyjumping.jpg'); 
     background-size: cover;
     background-position:  top;
     opacity: 0.9; 
@@ -511,7 +522,7 @@ body {
 }
 /* about page */
 .about-section {
-    background-image: url('/static/images/khal.jpg');
+    background-image: url('/static/images/horseandfoal.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -622,7 +633,7 @@ body {
 /* Booking form Page Styling */
 
 .booking-form-section {
-    background-image: url('/static/images/khal.jpg'); /* Background image path */
+    background-image: url('/static/images/horseandfoal.jpg'); /* Background image path */
     background-size: cover; /* Cover the entire section */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* No repeating of the image */
@@ -647,7 +658,7 @@ form {
 }
 
 h3, h4 {
-    color: white; /* Heading color to match the site theme */
+    color: #445261; /* Heading color to match the site theme */
     text-align: center; /* Center align headings */
 }
 
