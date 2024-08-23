@@ -3,11 +3,12 @@ from .models import About
 
 # Create your views here.
 def about_me(request):
-    about = About.objects.all().order_by('-updated_on').first()
+    about_list = About.objects.all().order_by('-updated_on')
+    print(f"about_list contains: {about_list}")  # Debugging line
 
     return render(
         request,
         'about/about.html',
-        {'about':about},
+        {'about_list': about_list},
     )
 
