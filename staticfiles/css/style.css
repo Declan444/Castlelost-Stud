@@ -1,7 +1,201 @@
+
+
+
 /* General Styles */
+
+/* Fixed Navbar Styles */
+.navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f8f9fa; 
+}
+
+
+/* Main Background */
+.main-bg {
+    background-color: #ffffff; /* White background for the main content */
+}
+
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    background: url('/static/images/khal.jpg') no-repeat center top/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff; /* White text color for better contrast */
+    text-align: center;
+    padding: 0 20px; 
+}
+
+/* Hero Section Overlay */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(37, 37, 37, 0.5); /* Darker overlay for better text visibility */
+    z-index: 1;
+}
+
+/* Styles for the lessons.html page */
+.lessons-page {
+    background-image: url('/static/images/khal.jpg'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8; /* Make the image faint */
+    min-height: 100vh; /* Ensure the background covers the full height */
+    padding-top: 20px; /* Space between the navbar and the content */
+}
+.lessons-page .card {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for cards */
+}
+
+.lessons-page .card-title, 
+.lessons-page .card-text {
+    color: #333; /* Text color for readability */
+}
+
+.lessons-page .card-title:hover {
+    background-color: #445261; /* Brand color for the background */
+    color: #ffffff; /* Optional: Change text color for better contrast */
+}
+
+/* Container Styles */
+.container {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+/* Navigation Styles */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #445261; /* Primary color for brand */
+}
+
+.nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease; 
+    color: white;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    
+    text-decoration: underline; /* Underline on hover for better visibility */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #7ca9da; /* Dark background for the footer */
+    color: #ffffff; /* White text color */
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.footer i {
+    color: #ffffff; /* White icons */
+    font-size: 1.25rem; /* Slightly larger icons */
+    margin: 0 0.5rem;
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.footer i:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+
+
+ Alerts 
+.alert {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-radius: 0.25rem;
+    /*margin-top: calc(1rem + 70px); */
+    width: auto;
+    max-width: 90vw;
+    height: auto;
+    color: white;
+    background-color: #445261;
+    border-color: #445261;
+}
+
+.alert-success {
+    color: #131715;
+    background-color: #718a7f;
+    border-color: #829b90;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    background-color: #445261; /* Primary button color */
+    border-color: #20423d;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #252c09; /* Darker color on hover */
+    border-color: #445261; /* Darker border on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.25rem; /* Adjust brand font size for smaller screens */
+    }
+
+    .hero-section {
+        padding: 0 10px; /* Reduced padding on smaller screens */
+    }
+}
+
+
+/* Features Section */
+.features {
+    background-color: #f8f9fa; /* Light background color for the section */
+    padding-top: 3rem; /* Additional space at the top */
+    padding-bottom: 3rem; /* Additional space at the bottom */
+}
+
+.feature-card {
+    background-color: #ffffff; /* White background for the cards */
+    border-radius: 0.75rem; /* Rounded corners  */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.3s ease; /* Smooth transition on hover */
+    text-align: center; /* Center text inside the card */
+    padding: 2rem; /* Padding inside the card */
+    margin: 0 auto; /* Center the card inside the column */
+    
+}
+
+
+
+
+/* Hover Effect for Feature Cards */
+.feature-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* add css from code institute to be changed as styling progresses */
 body {
     background-color: #F9FAFC;
-    font-family: Arial, sans-serif;
 }
 
 .brand {
@@ -24,8 +218,7 @@ body {
 }
 
 .dark-bg {
-    background-color: #0a0b72;
-    color: #fff; /* Ensure text is white on dark background */
+    background-color: #445261;
 }
 
 .main-bg {
@@ -46,7 +239,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181;
+    background-color: #445261;
 }
 
 .scale {
@@ -60,7 +253,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Masthead */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -74,7 +266,6 @@ body {
     background-color: #445261;
     color: white;
     position: relative;
-    z-index: 10; /* Ensure text is above background */
 }
 
 .masthead-image {
@@ -93,7 +284,7 @@ body {
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
-    z-index: 5; /* Behind text */
+    z-index: 100;
 }
 
 .post-link {
@@ -118,14 +309,14 @@ body {
 
 .btn-signup,
 .btn-edit {
-    background-color: #0c0a6e;
+    background-color: #445261;
     color: #fff;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #118fe4;
-    color: #0c0a6e;
+    color: #445261;
 }
 
 .link {
@@ -169,14 +360,32 @@ body {
     height: 33.33vh; 
     object-fit: cover; 
     object-position: center;
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items to the top */
+    padding: 20px; /* Adjust padding as needed */
+    max-width: 100%; /* Ensure it doesn’t overflow */
+    overflow: auto; /* Allow scrolling if content overflows */
+    box-sizing: border-box; /* Include padding and border in the element’s total width and height */
 }
 
-/* Alerts */
-.alert-success {
-    background-color: #d4edda;
+  .alert-success {
+    background-color: #445261;
     border-color: #c3e6cb;
-    color: #155724;
+    color: white;
+    margin-top: 80px;
+    padding-top: 1rem;
+    border-radius: 0.25rem;
+    /* margin-top: calc(1rem + 70px); */
+    width: auto;
+    max-width: 90vw;
+    height: auto;
 }
+
 
 .alert-danger {
     background-color: #f8d7da;
@@ -184,108 +393,304 @@ body {
     color: #721c24;
 }
 
-/* General Overrides */
-body {
-    background-color: #141414; /* Dark background for the whole page */
-    color: #f0f0f0; /* Light text color for readability on dark background */
-    font-family: Arial, sans-serif; /* Custom font for general text */
-}
-
-/* Hero Section */
-.hero-section {
-    background: url("{% static 'images/khal.jpg' %}") no-repeat center center/cover;
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff; /* White text color */
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
-    z-index: 1;
-}
-
-.hero-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-section .display-4 {
-    font-size: 4rem; /* Customize the font size */
-    font-weight: 700; /* Ensure bold text */
-}
-
-.hero-section .lead {
-    font-size: 1.25rem; /* Customize font size */
-    color: #dddddd; /* Light grey color for readability */
-}
-
-.btn-primary {
-    background-color: #0056b3; /* Custom blue color */
-    border-color: #004494; /* Custom border color */
-    padding: 0.75rem 1.5rem; /* Custom padding */
-    font-size: 1.25rem; /* Custom font size */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #003d7a; /* Darker blue on hover */
-    transform: scale(1.05); /* Slight zoom effect */
-}
-
-/* Features Section */
-.features {
-    background-color: #202020; /* Dark background for the features section */
-    color: #f0f0f0; /* Light text color for readability */
-    padding: 5rem 0; /* Padding for vertical spacing */
-}
-
-.features h2 {
-    color: #f0f0f0; /* Light color for the section heading */
-    margin-bottom: 3rem; /* Margin below the heading */
-}
-
-.feature-card {
-    background-color: #333333; /* Dark card background */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Custom shadow effect */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Book a lesson page */
+/* Title */
+.page-title {
+    font-size: 2.5rem;
+    color: white;
     text-align: center;
-    padding: 2rem; /* Padding inside the card */
+    margin-bottom: 20px;
 }
 
-.feature-card i {
-    color: #007bff; /* Custom color for icons */
+/* Header */
+.calendar-header {
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-.feature-card h3 {
-    font-weight: 700; /* Ensure bold heading text */
-    margin-bottom: 1rem; /* Margin below the heading */
+/* Navigation */
+.calendar-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-.feature-card p {
-    color: #dddddd; /* Light text color for paragraph */
+.calendar-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-/* Responsive Adjustments */
+.nav-link {
+    
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #445261;
+    
+    
+}
+
+/* Calenda */
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.calendar-table th, .calendar-table td {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    text-align: center;
+}
+
+.calendar-table th {
+    background-color: rgba(68, 82, 97, 0.7);
+    color: #ffffff;
+}
+
+.calendar-table td {
+    background-color: rgba(249, 249, 249, 0.9);
+    color: #445261;
+}
+
+.calendar-table td a {
+    color: #445261;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.calendar-table td a.active-date:hover {
+    background-color: #445261;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.calendar-table td .past-date {
+    color: #cccccc;
+}
+
+.bookalesson-page {
+    background-image: url('/static/images/khal.jpg'); 
+    background-size: cover;
+    background-position:  top;
+    opacity: 0.9; 
+    min-height: 100vh; 
+    padding-top: 20px; 
+    padding-left: 20px; 
+    padding-right: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box; 
+}
+
+
+/* Responsive design */
 @media (max-width: 768px) {
-    .hero-section .display-4 {
-        font-size: 3rem; /* Adjust font size for smaller screens */
+    .calendar-navigation {
+        flex-direction: column;
+        align-items: center;
     }
-    
-    .hero-section .lead {
-        font-size: 1rem; /* Adjust font size for smaller screens */
+
+    .nav-link {
+        margin-bottom: 10px;
     }
-    
-    .feature-card {
-        padding: 1.5rem; /* Adjust padding for smaller screens */
+
+    .calendar-table th, .calendar-table td {
+        padding: 10px;
     }
 }
+/* about page */
+.about-section {
+    background-image: url('/static/images/khal.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0; 
+    color: #ffffff; 
+    }
+
+.content-box {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    border-radius: 10px; 
+    color: #445261;
+    border: 2px solid #445261;
+    margin: 0 15px;
+    max-width: 100%; 
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #445261;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+}
+
+.about-section .text-end {
+    margin-top: 20px;
+}
+
+/* Timeslot Page Specific Styles */
+
+/* Background Image for the Timeslot Section */
+.timeslot-section {
+    background-image: url('/static/images/khal.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0; 
+    color: #ffffff; 
+}
+.timeslot-head {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* Timeslot Table Styling */
+.timeslot-table {
+    width: 100%;
+    max-width: 90%; 
+    margin: 0 auto 20px auto; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    border-radius: 10px; 
+    color: black;
+    border: 2px solid #445261;
+    box-sizing: border-box; 
+}
+
+.timeslot-table thead th {
+    background-color: #445261;
+    color: #ffffff;
+    padding: 10px;
+    text-align: left;
+    text-align: center;
+}
+
+.timeslot-table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+.timeslot-table a {
+    color: #445261;
+    font-weight: bold;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;; 
+}
+
+
+.timeslot-table a:hover {
+    background-color: #37424f; 
+    color: #ffffff; 
+    border-radius: 5px; 
+    padding: 5px; 
+
+}
+
+/* Unavailable Slot Styling */
+.timeslot-table .inactive {
+    color: #999;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Booking form Page Styling */
+
+.booking-form-section {
+    background-image: url('/static/images/khal.jpg'); /* Background image path */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* No repeating of the image */
+    padding: 50px 0; /* Vertical padding for spacing */
+    color: #ffffff; /* Text color for readability */
+    min-height: 100vh; /* Ensure section takes at least the full viewport height */
+    box-sizing: border-box; /* Include padding and border in the element's total height */
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+}
+
+form {
+    width: 100%; /* Limit form width */
+    max-width: 600px;
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border: 2px solid #445261; /* Border color to match the site theme */
+    border-radius: 10px; /* Curved corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    
+}
+
+h3, h4 {
+    color: white; /* Heading color to match the site theme */
+    text-align: center; /* Center align headings */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Space between form groups */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #445261; /* Label color to match the site theme */
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #445261; /* Border color to match the site theme */
+    border-radius: 5px; /* Curved corners */
+    background-color: #ffffff; /* Background color for the dropdown */
+    color: #445261; /* Text color to match the site theme */
+    font-size: 16px; /* Adjust font size for readability */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #445261; /* Button background color */
+    border-color: #445261; /* Button border color */
+    color: #ffffff; /* Button text color */
+    padding: 10px 20px; /* Adjust padding */
+    font-size: 16px; /* Adjust font size */
+    border-radius: 5px; /* Curved corners */
+    text-align: center; /* Center text */
+    display: inline-block; /* Ensure button behaves as a block-level element */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+}
+
+/* Button Hover Effect */
+.btn-primary:hover {
+    background-color: #37424f; /* Darker shade on hover */
+    border-color: #37424f; /* Match border color on hover */
+    
+}
+
+
