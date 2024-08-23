@@ -639,7 +639,7 @@ form {
     max-width: 600px;
     margin: 0 auto; /* Center the form horizontally */
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
     border: 2px solid #445261; /* Border color to match the site theme */
     border-radius: 10px; /* Curved corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -665,12 +665,17 @@ h3, h4 {
 .form-control {
     width: 100%;
     padding: 10px;
-    border: 1px solid #445261; /* Border color to match the site theme */
-    border-radius: 5px; /* Curved corners */
-    background-color: #ffffff; /* Background color for the dropdown */
-    color: #445261; /* Text color to match the site theme */
-    font-size: 16px; /* Adjust font size for readability */
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
+    border: 1px solid #445261; 
+    border-radius: 5px; 
+    background-color: #ffffff; 
+    color: #445261;
+    font-size: 16px;
+    box-sizing: border-box; 
+    
+    /* Ensure default appearance */
+    appearance: auto; /* Standard */
+    -webkit-appearance: auto; /* WebKit browsers */
+    -moz-appearance: auto; /* Mozilla browsers */
 }
 
 /* Button Styling */
