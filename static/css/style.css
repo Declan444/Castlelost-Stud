@@ -18,7 +18,10 @@ body {
     background-color: #f8f9fa; 
 }
 
-
+.mt-5{
+    
+    margin-bottom: 40px;
+}
 /* Main Background */
 .main-bg {
     background-color: #ffffff; /* White background for the main content */
@@ -658,7 +661,7 @@ form {
 }
 
 h3, h4 {
-    color: #445261; /* Heading color to match the site theme */
+    color: white; /* Heading color to match the site theme */
     text-align: center; /* Center align headings */
 }
 
