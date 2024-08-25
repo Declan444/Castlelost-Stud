@@ -723,6 +723,7 @@ h3, h4 {
     color: #ffffff; 
     }
     
+    /* register page */
     /* signup-section */
     .signup-section {
         background-image: url('/static/images/horseandfoal.jpg');
@@ -742,7 +743,15 @@ h3, h4 {
         font-weight: bold;
     }
 
+    .signup-header {
+        font-weight: bold;
+    }
 
+    .signup-text {
+        text-align: center;
+    }
+
+    /* contact us page */
     .contact-section {
         background-image: url('/static/images/horseandfoal.jpg');
         background-size: cover;
@@ -761,6 +770,30 @@ h3, h4 {
             text-align: center;
             font-weight: bold;
      }
+
+     /* login page */
+     .login-section {
+        background-image: url('/static/images/horseandfoal.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 100px 0; 
+        color: #ffffff; 
+        }
+
+    .login-header {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .login-text {
+        text-align: center;
+        font-weight: bold; 
+    }
+
+    .login label {
+        color: #445261
+    }
 
     
 

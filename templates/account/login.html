@@ -6,13 +6,13 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-
+<div class="login-section">
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
+            <h3 class="login-header">{% trans "Sign In" %}</h3>
 
-            <p>{% blocktrans %}Welcome back to the Castlelost Stud site. To book a lesson or leave a comment on your lesson, please log in. If
+            <p class="login-text">{% blocktrans %}Welcome back to the Castlelost Stud site. To book a lesson or leave a comment on your lesson, please log in. If
                 you
                 have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
                 first.{% endblocktrans %}</p>
@@ -30,5 +30,6 @@
             </form>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
