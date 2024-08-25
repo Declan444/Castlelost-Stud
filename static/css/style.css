@@ -711,5 +711,35 @@ h3, h4 {
     border-color: #37424f; /* Match border color on hover */
     
 }
+/* logout page */
+.logout-section {
+    background-image: url('/static/images/horseandfoal.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0; 
+    color: #ffffff; 
+    }
+    
+    /* signup-section */
+    .signup-section {
+        background-image: url('/static/images/horseandfoal.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 100px 0; 
+        color: #ffffff; 
+        }
 
+    .signup label, .signup li {
+            color: #445621;
+    }
+
+    .bold-link {
+        color: #445621;
+        font-weight: bold;
+    }
+
+
+        
 
