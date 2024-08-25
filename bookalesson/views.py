@@ -2,7 +2,7 @@
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.utils.timezone import now
 from django.views import generic
 from django.contrib import messages
@@ -12,6 +12,7 @@ from .forms import CommentForm
 from datetime import datetime, timedelta
 import calendar
 from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -351,3 +352,19 @@ def booking_form(request, date, slot):
     }
 
     return render(request, 'bookalesson/booking_form.html', context)
+
+def contact_us(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        
+       
+        
+        # Respond with a JSON response to indicate success
+        return JsonResponse({'success': True})
+
+    return render(request, 'bookalesson/contact_us.html')
+        
+       
+       
