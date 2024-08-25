@@ -383,6 +383,8 @@ body {
     max-width: 100%; 
     overflow: auto; 
     box-sizing: border-box; 
+    
+    
 }
 
   .alert-success {
@@ -636,44 +638,44 @@ body {
 /* Booking form Page Styling */
 
 .booking-form-section {
-    background-image: url('/static/images/horseandfoal.jpg'); /* Background image path */
-    background-size: cover; /* Cover the entire section */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* No repeating of the image */
-    padding: 50px 0; /* Vertical padding for spacing */
-    color: #ffffff; /* Text color for readability */
-    min-height: 100vh; /* Ensure section takes at least the full viewport height */
-    box-sizing: border-box; /* Include padding and border in the element's total height */
-    display: flex; /* Enable flexbox layout */
-    flex-direction: column; /* Stack children vertically */
+    background-image: url('/static/images/horseandfoal.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    padding: 50px 0; 
+    color: #ffffff; 
+    min-height: 100vh; 
+    box-sizing: border-box; 
+    display: flex; 
+    flex-direction: column; 
 }
 
 form {
-    width: 100%; /* Limit form width */
+    width: 100%; 
     max-width: 600px;
-    margin: 0 auto; /* Center the form horizontally */
+    margin: 0 auto; 
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
-    border: 2px solid #445261; /* Border color to match the site theme */
-    border-radius: 10px; /* Curved corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: rgba(255, 255, 255, 0.8); 
+    border: 2px solid #445261; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     
 }
 
 h3, h4 {
-    color: white; /* Heading color to match the site theme */
-    text-align: center; /* Center align headings */
+    color: white; 
+    text-align: center; 
 }
 
 .form-group {
-    margin-bottom: 20px; /* Space between form groups */
+    margin-bottom: 20px; 
 }
 
 .form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #445261; /* Label color to match the site theme */
+    color: #445261; 
 }
 
 .form-control {
@@ -687,7 +689,7 @@ h3, h4 {
     box-sizing: border-box; 
     
     /* Ensure default appearance */
-    appearance: auto; /* Standard */
+    appearance: auto; 
     -webkit-appearance: auto; /* WebKit browsers */
     -moz-appearance: auto; /* Mozilla browsers */
 }
@@ -721,6 +723,7 @@ h3, h4 {
     color: #ffffff; 
     }
     
+    /* register page */
     /* signup-section */
     .signup-section {
         background-image: url('/static/images/horseandfoal.jpg');
@@ -740,6 +743,59 @@ h3, h4 {
         font-weight: bold;
     }
 
+    .signup-header {
+        font-weight: bold;
+    }
+
+    .signup-text {
+        text-align: center;
+    }
+
+    /* contact us page */
+    .contact-section {
+        background-image: url('/static/images/horseandfoal.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 100px 0; 
+        color: #ffffff; 
+        }
+
+    .contact-header {
+        font-weight: bold;
+
+    }
+
+    .contact-text {
+            text-align: center;
+            font-weight: bold;
+     }
+
+     /* login page */
+     .login-section {
+        background-image: url('/static/images/horseandfoal.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 100px 0; 
+        color: #ffffff; 
+        }
+
+    .login-header {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .login-text {
+        text-align: center;
+        font-weight: bold; 
+    }
+
+    .login label {
+        color: #445261
+    }
+
+    
 
         
 
