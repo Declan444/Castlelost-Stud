@@ -361,7 +361,7 @@ def contact_us(request):
         
        
         
-        # Respond with a JSON response to indicate success
+        
         return JsonResponse({'success': True})
 
     return render(request, 'bookalesson/contact_us.html')
