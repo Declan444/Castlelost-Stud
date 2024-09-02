@@ -1,32 +1,87 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Grange Equestrian
 
-Welcome,
+## The equestrian centre to book a horse riding lesson
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
+Grange Equestrian was developed to allow beginners, intermediate and advanced riders to be able to book a riding lesson with an instructor of choice. The user can enter the site or app, read about the different types of lessons, read about the instructors and then book a lesson that is available. The site is intended to give the user all the information that they would need to enable them to make an informed choice of which lesson and which instructor they need to book. The booking process shows days available and timeslots within those days for the user to book. Once booked the user is shown exactly what they have booked which awaits approval by the instructor. 
 
-## Reminders
+The site also allows the user to view all comments made by other users who have had a that specific lesson. If the user has had a lesson they can then leave a comment on that specific lesson. The users can also delete a comment or edit a comment that they have left on the lesson.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+### Project Overview
 
-## Creating the Heroku app
+The Grange Equestrian site is intended to offer a user-friendly interface to allow the users to browse, review, learn and book a riding lesson.The project is designed to show the use of the latest web technologies and follows best practices in web development. The project follows the core structure of the Code Institute Blog walkthrough with the use of django and deploying to heroku and the setting up of the project. The project implements a date, timeslot and booking system to enable users to book a lesson. It also gives the user front end crud capability by allowing them to create, read, update and delete comments.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+[Live Demo](https://castlelost-stud-cbac18c58c5b.herokuapp.com/)
 
-1. `heroku/python`
-2. `heroku/nodejs`
+### Key Features
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+- Booking capability
+- Responsive design for various devices
+- Ability to leave comments on lesson
+- CRUD capability for user
+- CRUD capability for Admin
+- Ability for admin to add lessons and instructors through backend
+- User authentication and profile management
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+### Target Audience
 
-Connect your GitHub repository and deploy as normal.
+The site is designed for anybody interested in horse riding. This includes beginners, intermediate and advanced riders. 
 
-## Constraints
+## Table of Contents
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+1. [Features](#features)
+    - [Key Features Summary](#key-features-summary)
 
----
+2. [User Experience (UX)](#user-experience-ux)
+    - [User Stories](#user-stories)
+    - [Wireframes](#wireframes)
 
-Happy coding!
+3. [Information Architecture](#information-architecture)
+    - [Flowchart](#flowchart)
+    - [Database Schema (ERD Diagram)](#erd-diagram)
+    - [Data Models Description](#data-models-description)
+
+4. [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Frameworks](#frameworks)
+    - [Databases](#databases)
+
+5. [Agile Methodology](#agile-methodology)
+
+6. [Deployment](#deployment)
+
+7. [Testing](#testing)
+
+8. [Bugs and Fixes](#bugs-and-fixes)
+
+9. [Unsolved Issues and Bugs](#unsolved-issues-and-bugs)
+
+10. [Credits](#credits)
+
+## Features
+
+### Key Features Summary
+
+    - Home page with book a lesson button
+    - User registration and login with form validation and error handling
+    - Django admin panel for superuser to manage, users, bookings, instructors and lessons
+    - Customised 404 error pages
+    - Booking capability for date and time slots
+    - Ability to comment on a lesson
+    - Full front end CRUD capability
+    - Ability to view lesson comments
+    - Lesson types dynamically served from the backend
+    - Detailed explanation for each lesson type
+    - Contact us capability for the user
+
+## User Experience (UX)
+
+### Project Goals
+
+#### Site Owner Goals
+
+The site owner goals was to allow a user to visit the site, easily be able to navigate around the site, to be able to easily and logically review lessons available, get details about the lessons and then to be able to book a lesson with a date and an available timeslot. The site owner goals was also for the use to understand that they had to be registered to enable them to book a lesson and to do this they had to be able to register easily. Once registered the user would easily be able to login to the site and from there logically and easily book a lesson. The site owner also wanted the User to know which lesson, the date and timeslot that they had just booked. 
+
+#### User Goals
+
+The user goals were to be able to easily book a lesson. The user wants to easily know how to book a lesson, and to have the ability to select and avalable date and within that date to be able to select an available timeslot. The user wants to be able to easily know if a timeslot is not available and not have the ability to book this date or timeslot. The user wants to also be told what they have actually booked. The user wants to be able to navigate logically and easily around the site and always have the ability to return to the home page.
+
