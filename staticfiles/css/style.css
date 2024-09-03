@@ -59,7 +59,7 @@ body {
     background-image: url('/static/images/hollyjumping.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.8;
+    opacity: 0.9;
     /* Make the image faint */
     min-height: 100vh;
     /* Ensure the background covers the full height */
@@ -69,7 +69,7 @@ body {
 }
 
 .lessons-page .card {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
     /* Slightly transparent white background for cards */
     border-radius: 5%;
     border: 2px solid #445261;
