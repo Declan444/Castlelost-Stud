@@ -112,7 +112,7 @@ All imagery is the property of Grange Equestrian and shows, horses and showjumpi
 
 Home Page
 
-![Home Wireframe](castleloststud\readme_assets\images\wireframes\grange_home.png)
+![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_home.png)
 
 
 
