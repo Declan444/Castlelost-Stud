@@ -1,30 +1,29 @@
-
-
-
 /* General Styles */
 
 /* Fixed Navbar Styles */
 .navbar {
-    position: fixed; /* Fixes the navbar at the top */
+    position: fixed;
+    /* Fixes the navbar at the top */
     top: 0;
     left: 0;
-    width: 100%; /* Full width */
-    z-index: 1000; /* Ensure it stays above other content */
+    width: 100%;
+    /* Full width */
+    z-index: 1000;
+    /* Ensure it stays above other content */
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     color: #333;
-    background-color: #f8f9fa; 
+    background-color: #f8f9fa;
 }
 
-.mt-5{
-    
-    margin-bottom: 40px;
-}
+
+
 /* Main Background */
 .main-bg {
-    background-color: #ffffff; /* White background for the main content */
+    background-color: #ffffff;
+    /* White background for the main content */
 }
 
 /* Hero Section Styles */
@@ -35,9 +34,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff; /* White text color for better contrast */
+    color: #ffffff;
+    /* White text color for better contrast */
     text-align: center;
-    padding: 0 20px; 
+    padding: 0 20px;
 }
 
 /* Hero Section Overlay */
@@ -48,95 +48,117 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(37, 37, 37, 0.5); /* Darker overlay for better text visibility */
+    background: rgba(37, 37, 37, 0.5);
+    /* Darker overlay for better text visibility */
     z-index: 1;
 }
 
+
 /* Styles for the lessons.html page */
 .lessons-page {
-    background-image: url('/static/images/hollyjumping.jpg'); 
+    background-image: url('/static/images/hollyjumping.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.8; /* Make the image faint */
-    min-height: 100vh; /* Ensure the background covers the full height */
-    padding-top: 20px; /* Space between the navbar and the content */
+    opacity: 0.8;
+    /* Make the image faint */
+    min-height: 100vh;
+    /* Ensure the background covers the full height */
+    padding-top: 20px;
+    /* Space between the navbar and the content */
+    position: relative;
 }
+
 .lessons-page .card {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for cards */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Slightly transparent white background for cards */
     border-radius: 5%;
     border: 2px solid #445261;
 }
 
-.lessons-page .card-title, 
+.lessons-page .card-title,
 .lessons-page .card-text {
-    color: #333; /* Text color for readability */
+    color: #333;
+    /* Text color for readability */
 }
 
+.mt-5 {
+    margin-top: 0px;
+}
 .card-body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
-    
-    
+
+
 }
 
 .lessons-page .card-title:hover {
-    background-color: #445261; /* Brand color for the background */
-    color: #ffffff; /* Optional: Change text color for better contrast */
+    background-color: #445261;
+    /* Brand color for the background */
+    color: #ffffff;
+    /* Optional: Change text color for better contrast */
 }
 
 /* Container Styles */
 .container {
     position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
+    z-index: 2;
+    /* Ensure content is above the overlay */
 }
 
 /* Navigation Styles */
 .navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #445261; /* Primary color for brand */
+    color: #445261;
+    /* Primary color for brand */
 }
 
 .nav-link {
     font-size: 1rem;
     padding: 0.5rem 1rem;
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
     color: white;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    
-    text-decoration: underline; /* Underline on hover for better visibility */
+
+    text-decoration: underline;
+    /* Underline on hover for better visibility */
 }
 
 /* Footer Styles */
 .footer {
-    background-color: #7ca9da; /* Dark background for the footer */
-    color: #ffffff; /* White text color */
+    background-color: #7ca9da;
+    /* Dark background for the footer */
+    color: #ffffff;
+    /* White text color */
     padding: 1rem 0;
     text-align: center;
 }
 
 .footer i {
-    color: #ffffff; /* White icons */
-    font-size: 1.25rem; /* Slightly larger icons */
+    color: #ffffff;
+    /* White icons */
+    font-size: 1.25rem;
+    /* Slightly larger icons */
     margin: 0 0.5rem;
-    transition: color 0.3s ease; /* Smooth transition on hover */
+    transition: color 0.3s ease;
+    /* Smooth transition on hover */
 }
 
 .footer i:hover {
-    color: #007bff; /* Change color on hover */
+    color: #007bff;
+    /* Change color on hover */
 }
 
 
 
- Alerts 
-.alert {
+Alerts .alert {
     margin-top: 1rem;
     padding-top: 1rem;
     border-radius: 0.25rem;
@@ -157,44 +179,58 @@ body {
 
 /* Custom Button Styles */
 .btn-primary {
-    background-color: #445261; /* Primary button color */
+    background-color: #445261;
+    /* Primary button color */
     border-color: #20423d;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #252c09; /* Darker color on hover */
-    border-color: #445261; /* Darker border on hover */
+    background-color: #252c09;
+    /* Darker color on hover */
+    border-color: #445261;
+    /* Darker border on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar-brand {
-        font-size: 1.25rem; /* Adjust brand font size for smaller screens */
+        font-size: 1.25rem;
+        /* Adjust brand font size for smaller screens */
     }
 
     .hero-section {
-        padding: 0 10px; /* Reduced padding on smaller screens */
+        padding: 0 10px;
+        /* Reduced padding on smaller screens */
     }
 }
 
 
 /* Features Section */
 .features {
-    background-color: #f8f9fa; /* Light background color for the section */
-    padding-top: 3rem; /* Additional space at the top */
-    padding-bottom: 3rem; /* Additional space at the bottom */
+    background-color: #f8f9fa;
+    /* Light background color for the section */
+    padding-top: 3rem;
+    /* Additional space at the top */
+    padding-bottom: 3rem;
+    /* Additional space at the bottom */
 }
 
 .feature-card {
-    background-color: #ffffff; /* White background for the cards */
-    border-radius: 0.75rem; /* Rounded corners  */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: box-shadow 0.3s ease; /* Smooth transition on hover */
-    text-align: center; /* Center text inside the card */
-    padding: 2rem; /* Padding inside the card */
-    margin: 0 auto; /* Center the card inside the column */
-    
+    background-color: #ffffff;
+    /* White background for the cards */
+    border-radius: 0.75rem;
+    /* Rounded corners  */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    /* Smooth transition on hover */
+    text-align: center;
+    /* Center text inside the card */
+    padding: 2rem;
+    /* Padding inside the card */
+    margin: 0 auto;
+    /* Center the card inside the column */
+
 }
 
 
@@ -202,7 +238,8 @@ body {
 
 /* Hover Effect for Feature Cards */
 .feature-card:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* Deeper shadow on hover */
 }
 
 /* add css from code institute to be changed as styling progresses */
@@ -369,25 +406,25 @@ body {
 }
 
 .about-image {
-    height: 33.33vh; 
-    object-fit: cover; 
+    height: 33.33vh;
+    object-fit: cover;
     object-position: center;
-  }
-
-  .modal-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: flex-start; 
-    padding: 20px; 
-    max-width: 100%; 
-    overflow: auto; 
-    box-sizing: border-box; 
-    
-    
 }
 
-  .alert-success {
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    max-width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+
+
+}
+
+.alert-success {
     background-color: #445261;
     border-color: #c3e6cb;
     color: white;
@@ -438,33 +475,65 @@ body {
 }
 
 .nav-link {
-    
+
     text-decoration: none;
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
-    
-    
+
+
     transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-link:hover {
     background-color: #445261;
     ;
-    
-    
+
+
 }
 
 /* Calenda */
-.calendar-table {
+.calendar-container {
+    overflow-x: auto;
+    /* Enables horizontal scrolling if the table overflows */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on touch devices */
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
+    /* Ensures the container fits within the viewport */
 }
 
-.calendar-table th, .calendar-table td {
+.calendar-table {
+    width: 100%;
+    /* Ensures the table takes up the full width of the container */
+    min-width: 100%;
+    /* Ensures the table remains responsive down to 320px */
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    table-layout: auto;
+    /* Makes the table layout more flexible */
+}
+
+.calendar-table th,
+.calendar-table td {
+    word-wrap: break-word;
+    /* Ensures content wraps within the cells */
+    overflow: hidden;
+    /* Prevents overflow from cells */
+    text-overflow: ellipsis;
+    /* Adds ellipsis for overflowing text */
+}
+
+@media screen and (max-width: 440px) {
+    .calendar-table {
+        font-size: 0.9em;
+        /* Adjusts font size for better fit */
+    }
+}
+
+.calendar-table th,
+.calendar-table td {
     border: 1px solid #e0e0e0;
-    padding: 15px;
+    padding: 7px;
     text-align: center;
 }
 
@@ -496,22 +565,24 @@ body {
     color: #cccccc;
 }
 
+
+
 .bookalesson-page {
-    background-image: url('/static/images/hollyjumping.jpg'); 
+    background-image: url('/static/images/hollyjumping.jpg');
     background-size: cover;
-    background-position:  top;
-    opacity: 0.9; 
-    min-height: 100vh; 
-    padding-top: 20px; 
-    padding-left: 20px; 
+    background-position: top;
+    opacity: 0.9;
+    min-height: 100vh;
+    padding-top: 20px;
+    padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 
 /* Responsive design */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
     .calendar-navigation {
         flex-direction: column;
         align-items: center;
@@ -525,24 +596,26 @@ body {
         padding: 10px;
     }
 }
+  */
+
 /* about page */
 .about-section {
     background-image: url('/static/images/horseandfoal.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 100px 0; 
-    color: #ffffff; 
-    }
+    padding: 100px 0;
+    color: #ffffff;
+}
 
 .content-box {
-    background-color: rgba(255, 255, 255, 0.9); 
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
-    border-radius: 10px; 
+    border-radius: 10px;
     color: #445261;
     border: 2px solid #445261;
     margin: 0 15px;
-    max-width: 100%; 
+    max-width: 100%;
 }
 
 .about-section h2 {
@@ -563,13 +636,14 @@ body {
 
 /* Background Image for the Timeslot Section */
 .timeslot-section {
-    background-image: url('/static/images/khal.jpg'); 
+    background-image: url('/static/images/khal.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 50px 0; 
-    color: #ffffff; 
+    padding: 50px 0;
+    color: #ffffff;
 }
+
 .timeslot-head {
     color: white;
     font-size: 24px;
@@ -581,14 +655,14 @@ body {
 /* Timeslot Table Styling */
 .timeslot-table {
     width: 100%;
-    max-width: 90%; 
-    margin: 0 auto 20px auto; 
-    background-color: rgba(255, 255, 255, 0.9); 
+    max-width: 90%;
+    margin: 0 auto 20px auto;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
-    border-radius: 10px; 
+    border-radius: 10px;
     color: black;
     border: 2px solid #445261;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 .timeslot-table thead th {
@@ -616,15 +690,16 @@ body {
     font-size: 14px;
     display: inline-block;
     text-align: center;
-    transition: background-color 0.3s, color 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;; 
+    transition: background-color 0.3s, color 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
+    ;
 }
 
 
 .timeslot-table a:hover {
-    background-color: #37424f; 
-    color: #ffffff; 
-    border-radius: 5px; 
-    padding: 5px; 
+    background-color: #37424f;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
 
 }
 
@@ -639,163 +714,179 @@ body {
 
 .booking-form-section {
     background-image: url('/static/images/horseandfoal.jpg');
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    padding: 50px 0; 
-    color: #ffffff; 
-    min-height: 100vh; 
-    box-sizing: border-box; 
-    display: flex; 
-    flex-direction: column; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    color: #ffffff;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 form {
-    width: 100%; 
+    width: 100%;
     max-width: 600px;
-    margin: 0 auto; 
+    margin: 0 auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); 
-    border: 2px solid #445261; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #445261;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
-h3, h4 {
-    color: white; 
-    text-align: center; 
+h3,
+h4 {
+    color: white;
+    text-align: center;
 }
 
 .form-group {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #445261; 
+    color: #445261;
 }
 
 .form-control {
     width: 100%;
     padding: 10px;
-    border: 1px solid #445261; 
-    border-radius: 5px; 
-    background-color: #ffffff; 
+    border: 1px solid #445261;
+    border-radius: 5px;
+    background-color: #ffffff;
     color: #445261;
     font-size: 16px;
-    box-sizing: border-box; 
-    
+    box-sizing: border-box;
+
     /* Ensure default appearance */
-    appearance: auto; 
-    -webkit-appearance: auto; /* WebKit browsers */
-    -moz-appearance: auto; /* Mozilla browsers */
+    appearance: auto;
+    -webkit-appearance: auto;
+    /* WebKit browsers */
+    -moz-appearance: auto;
+    /* Mozilla browsers */
 }
 
 /* Button Styling */
 .btn-primary {
-    background-color: #445261; /* Button background color */
-    border-color: #445261; /* Button border color */
-    color: #ffffff; /* Button text color */
-    padding: 10px 20px; /* Adjust padding */
-    font-size: 16px; /* Adjust font size */
-    border-radius: 5px; /* Curved corners */
-    text-align: center; /* Center text */
-    display: inline-block; /* Ensure button behaves as a block-level element */
-    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+    background-color: #445261;
+    /* Button background color */
+    border-color: #445261;
+    /* Button border color */
+    color: #ffffff;
+    /* Button text color */
+    padding: 10px 20px;
+    /* Adjust padding */
+    font-size: 16px;
+    /* Adjust font size */
+    border-radius: 5px;
+    /* Curved corners */
+    text-align: center;
+    /* Center text */
+    display: inline-block;
+    /* Ensure button behaves as a block-level element */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    /* Smooth transition */
 }
 
 /* Button Hover Effect */
 .btn-primary:hover {
-    background-color: #37424f; /* Darker shade on hover */
-    border-color: #37424f; /* Match border color on hover */
-    
+    background-color: #37424f;
+    /* Darker shade on hover */
+    border-color: #37424f;
+    /* Match border color on hover */
+
 }
+
 /* logout page */
 .logout-section {
     background-image: url('/static/images/horseandfoal.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 100px 0; 
-    color: #ffffff; 
-    }
-    
-    /* register page */
-    /* signup-section */
-    .signup-section {
-        background-image: url('/static/images/horseandfoal.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 100px 0; 
-        color: #ffffff; 
-        }
+    padding: 100px 0;
+    color: #ffffff;
+}
 
-    .signup label, .signup li {
-            color: #445621;
-    }
+/* register page */
+/* signup-section */
+.signup-section {
+    background-image: url('/static/images/horseandfoal.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    color: #ffffff;
+}
 
-    .bold-link {
-        color: #445621;
-        font-weight: bold;
-    }
+.signup label,
+.signup li {
+    color: #445621;
+}
 
-    .signup-header {
-        font-weight: bold;
-    }
+.bold-link {
+    color: #445621;
+    font-weight: bold;
+}
 
-    .signup-text {
-        text-align: center;
-    }
+.signup-header {
+    font-weight: bold;
+}
 
-    /* contact us page */
-    .contact-section {
-        background-image: url('/static/images/horseandfoal.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 100px 0; 
-        color: #ffffff; 
-        }
+.signup-text {
+    text-align: center;
+}
 
-    .contact-header {
-        font-weight: bold;
+/* contact us page */
+.contact-section {
+    background-image: url('/static/images/horseandfoal.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    color: #ffffff;
+}
 
-    }
+.contact-header {
+    font-weight: bold;
 
-    .contact-text {
-            text-align: center;
-            font-weight: bold;
-     }
+}
 
-     /* login page */
-     .login-section {
-        background-image: url('/static/images/horseandfoal.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 100px 0; 
-        color: #ffffff; 
-        }
+.contact-text {
+    text-align: center;
+    font-weight: bold;
+}
 
-    .login-header {
-        text-align: center;
-        font-weight: bold;
-    }
+/* login page */
+.login-section {
+    background-image: url('/static/images/horseandfoal.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    color: #ffffff;
+}
 
-    .login-text {
-        text-align: center;
-        font-weight: bold; 
-    }
+.login-header {
+    text-align: center;
+    font-weight: bold;
+}
 
-    .login label {
-        color: #445261
-    }
+.login-text {
+    text-align: center;
+    font-weight: bold;
+}
 
-    
+.login label {
+    color: #445261
+}
 
-        
-
+.error-page-text {
+    font-weight: bold;
+    text-align: center;
+}
