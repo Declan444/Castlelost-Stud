@@ -172,7 +172,7 @@ def book_a_lesson(request):
     next_year = year + 1 if month == 12 else year
     next_month = 1 if month == 12 else month + 1
 
-    cal = calendar.Calendar(firstweekday=0)
+    cal = calendar.Calendar(firstweekday=6)
     month_days = cal.monthdayscalendar(year, month)
 
     # Change dates_status to a dictionary
