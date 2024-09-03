@@ -33,6 +33,7 @@ The site is designed for anybody interested in horse riding. This includes begin
 
 2. [User Experience (UX)](#user-experience-ux)
     - [User Stories](#user-stories)
+    - [Design Choices](#design-choices)
     - [Wireframes](#wireframes)
 
 3. [Information Architecture](#information-architecture)
@@ -72,6 +73,7 @@ The site is designed for anybody interested in horse riding. This includes begin
     - Lesson types dynamically served from the backend
     - Detailed explanation for each lesson type
     - Contact us capability for the user
+    - select an instructor
 
 ## User Experience (UX)
 
@@ -83,5 +85,34 @@ The site owner goals was to allow a user to visit the site, easily be able to na
 
 #### User Goals
 
-The user goals were to be able to easily book a lesson. The user wants to easily know how to book a lesson, and to have the ability to select and avalable date and within that date to be able to select an available timeslot. The user wants to be able to easily know if a timeslot is not available and not have the ability to book this date or timeslot. The user wants to also be told what they have actually booked. The user wants to be able to navigate logically and easily around the site and always have the ability to return to the home page.
+The user goals were to be able to easily book a lesson. The user wants to easily know how to book a lesson, and to have the ability to select and avalable date and within that date to be able to select an available timeslot. The user wants to be able to easily know if a timeslot is not available and not have the ability to book this date or timeslot. The user wants to also be told what they have actually booked. The user wants to be able to navigate logically and easily around the site and always have the ability to return to the home page. The user can also select an instructor.
+
+### User Stories
+User stories were used to drive this project. 
+[User Stories (github issues)](https://github.com/Declan444/Castlelost-Stud/issues)
+<br>
+Kanban Board was used to control the project flow.
+[Kanban Board (github project)](https://github.com/users/Declan444/projects/11)
+
+All user stories acceptance criteria were met in this project. All issues were completed.
+
+### Design Choices
+#### Colour Scheme
+The colour scheme is 
+![Shades of #445261](image.png)
+
+#### Typography
+For this project I choose Roboto as is modern and suited my concept.
+
+#### Imagery
+All imagery is the property of Grange Equestrian and shows, horses and showjumping which depicts the theme of the site.
+
+
+### Wireframes
+
+Home Page
+
+![Home Wireframe](castleloststud\readme_assets\images\wireframes\grange_home.png)
+
+
 
