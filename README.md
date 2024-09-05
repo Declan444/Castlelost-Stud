@@ -118,8 +118,22 @@ Lessons Page
 
 ![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_home.png)
 
+Lesson Detail Page
+
+![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_lesson_detail.png)
+
 Instructors Page
 
 ![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_instructors.png)
 
+Book A Lesson Page
 
+![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_book_a_lesson.png)
+
+Available TimeSlots Page
+
+![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_available_timeslots.png)
+
+Booking Form Page
+
+![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_booking_form.png)
