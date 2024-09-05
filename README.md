@@ -10,7 +10,7 @@ The site also allows the user to view all comments made by other users who have 
 
 The Grange Equestrian site is intended to offer a user-friendly interface to allow the users to browse, review, learn and book a riding lesson.The project is designed to show the use of the latest web technologies and follows best practices in web development. The project follows the core structure of the Code Institute Blog walkthrough with the use of django and deploying to heroku and the setting up of the project. The project implements a date, timeslot and booking system to enable users to book a lesson. It also gives the user front end crud capability by allowing them to create, read, update and delete comments.
 
-[Live Demo](https://castlelost-stud-cbac18c58c5b.herokuapp.com/)
+[Grange Equestrian Live Demo](https://castlelost-stud-cbac18c58c5b.herokuapp.com/)
 
 ### Key Features
 
@@ -37,7 +37,7 @@ The site is designed for anybody interested in horse riding. This includes begin
     - [Wireframes](#wireframes)
 
 3. [Information Architecture](#information-architecture)
-    - [Flowchart](#flowchart)
+    - [Sitemap](#flowchart)
     - [Database Schema (ERD Diagram)](#erd-diagram)
     - [Data Models Description](#data-models-description)
 
@@ -116,24 +116,37 @@ Home Page
 
 Lessons Page
 
-![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_home.png)
+![Lessons Wireframe](castleloststud/readme_assets/images/wireframes/grange_lessons.png)
 
 Lesson Detail Page
 
-![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_lesson_detail.png)
+![Lesson Detail Wireframe](castleloststud/readme_assets/images/wireframes/grange_lesson_detail.png)
 
 Instructors Page
 
-![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_instructors.png)
+![Instructor Wireframe](castleloststud/readme_assets/images/wireframes/grange_instructors.png)
 
 Book A Lesson Page
 
-![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_book_a_lesson.png)
+![Book a Lesson Wireframe](castleloststud/readme_assets/images/wireframes/grange_book_a_lesson.png)
 
 Available TimeSlots Page
 
-![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_available_timeslots.png)
+![Available Timeslots Wireframe](castleloststud/readme_assets/images/wireframes/grange_available_timeslots.png)
 
 Booking Form Page
 
-![Home Wireframe](castleloststud/readme_assets/images/wireframes/grange_booking_form.png)
+![Booking Form Wireframe](castleloststud/readme_assets/images/wireframes/grange_booking_form.png)
+
+
+## Information Architecture
+### Sitemap
+
+The following sitemap gives a visual flow of the Grange Equestrian Site.
+
+![Sitemap](castleloststud/readme_assets/images/wireframes/grange_sitemap.png)
+
+### Database Schema (ERD Diagram)
+
+![ERD Diagram](castleloststud/readme_assets/images/wireframes/grange_erd.png)
+
