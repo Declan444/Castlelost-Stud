@@ -37,10 +37,9 @@ The site is designed for anybody interested in horse riding. This includes begin
     - [Wireframes](#wireframes)
 
 3. [Information Architecture](#information-architecture)
-    - [Sitemap](#flowchart)
-    - [Database Schema (ERD Diagram)](#erd-diagram)
-    - [Data Models Description](#data-models-description)
-
+    - [Sitemap](#sitemap)
+    - [ERD Diagram](#erd-diagram)
+    
 4. [Technologies Used](#technologies-used)
     - [Languages](#languages)
     - [Frameworks](#frameworks)
@@ -144,9 +143,9 @@ Booking Form Page
 
 The following sitemap gives a visual flow of the Grange Equestrian Site.
 
-![Sitemap](castleloststud/readme_assets/images/wireframes/grange_sitemap.png)
+![Sitemap](castleloststud/readme_assets/images/grange_sitemap.png)
 
-### Database Schema (ERD Diagram)
+### ERD Diagram
 
-![ERD Diagram](castleloststud/readme_assets/images/wireframes/grange_erd.png)
+![ERD Diagram](castleloststud/readme_assets/images/grange_erd.png)
 
