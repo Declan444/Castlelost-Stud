@@ -226,16 +226,35 @@ The following sitemap gives a visual flow of the Grange Equestrian Site.
 ### Database Relationships
 
 #### Instructor to Lesson: One to Many.
-The instructor can have many lessons.
+The instructor can have many lessons but a lesson can only have one instructor. <br>
+The Instructor model has a foreign key in the Lesson model. The related_name='lesson_types' allows reverse access from Instructor to all associated Lesson instances.
 
 #### Lesson to LessonDate: One to Many.
-A lesson can have many different dates.
+A lesson can have many different lesson dates but each lessson date can only be associated with one lesson.<br>
+The LessonDate model has a foreign key pointing to the Lesson model, meaning each LessonDate is tied to a specific Lesson. The related_name='lesson_dates' allows reverse access from a Lesson to its associated LessonDate instances.
 
-#### LessonDate to Booking: One to One.
-A lessonDate can only have one booking.
+#### LessonDate to User (via booked_lesson_dates): Many to One.
+A user can book many lesson dates but a specific LessonDate is booked by only one user.<br>
+This links the LessonDate to the User who has booked that specific lesson date. The reverse relationship is provided by related_name='booked_lesson_dates'.
 
-#### LessonDate to CommentOnLesson: One to One.
-A single comment can only be made on one lesson
+#### LessonDate to Booking: Many to One.
+A booking refers to a specific Lesson, but a Lesson can be part of multiple bookings.<br>
+The Booking model has a foreign key to Lesson, representing which lesson is being booked.
+
+#### Instructor to Booking: Many to One.
+A booking refers to a specific instructor, but an instructor can have many bookings.
+
+#### LessonDate to CommentOnLesson: One to Many.
+A single comment can only be made on one lesson, but a lesson can have many comments.<br>
+The CommentOnLesson model is connected to the Lesson model with a foreign key, meaning a comment belongs to a specific Lesson. The related_name='comments' allows reverse access from the Lesson model to its associated comments.
+
+#### LessonDate - CommentOnLesson: Many to One.
+A LessonDate can have many comments, but each comment is linked to a specific LessonDate.
+
+#### User to CommentOnLesson: Many to One.
+ A User can write many comments, but each comment is written by one user.<br>
+ The CommentOnLesson model links to the User model via the author field, indicating which user authored the comment.
+
 
 [Go to Table of Contents](#table-of-contents)
 
