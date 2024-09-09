@@ -1,8 +1,6 @@
 # Grange Equestrian
 
-![Laptop Main Page](image-2.png)
-
- 
+ ![screenshot](image-5.png)
 
 ## The equestrian centre to book a horse riding lesson
 
