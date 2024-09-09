@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'castlelost-stud-cbac18c58c5b.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'castlelost-stud-cbac18c58c5b.herokuapp.com', 'ui.dev/amiresponsive']
 
 
 # Application definition
@@ -159,4 +159,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CSP_FRAME_ANCESTORS = ("'self'", "http://ami.responsivedesign.is")
+CSP_FRAME_ANCESTORS = ("'self'", "https://ui.dev/amiresponsive")
