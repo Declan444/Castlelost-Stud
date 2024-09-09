@@ -1,5 +1,9 @@
 # Grange Equestrian
 
+![Laptop Main Page](image-2.png)
+
+ 
+
 ## The equestrian centre to book a horse riding lesson
 
 Grange Equestrian was developed to allow beginners, intermediate and advanced riders to be able to book a riding lesson with an instructor of choice. The user can enter the site or app, read about the different types of lessons, read about the instructors and then book a lesson that is available. The site is intended to give the user all the information that they would need to enable them to make an informed choice of which lesson and which instructor they need to book. The booking process shows days available and timeslots within those days for the user to book. Once booked the user is shown exactly what they have booked which awaits approval by the instructor. 
