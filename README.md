@@ -333,4 +333,4 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 
 ### Manual Testing Features
 
-Manual Testing file can be found in the [Manual Testing File](castleloststud\readme_assets\testing\manual_testing.md)
+Manual Testing file can be found in the [Manual Testing File](castleloststud/readme_assets/testing/manual_testing.md)
