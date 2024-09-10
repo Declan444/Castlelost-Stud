@@ -1,6 +1,6 @@
 # Grange Equestrian
 
- ![screenshot](image-5.png)
+ ![screenshot](castleloststud/readme_assets/images/responsive_image.png)
 
 ## The equestrian centre to book a horse riding lesson
 
@@ -174,7 +174,7 @@ As a user I want to be able to get confirmation of a booked lesson so that I can
 ### Design Choices
 #### Colour Scheme
 The colour scheme is 
-![Shades of #445261](image.png)
+![Shades of #445261](castleloststud/readme_assets/images/colour_scheme.png)
 
 #### Typography
 For this project I choose Roboto as is modern and suited my concept.
@@ -290,7 +290,7 @@ It allowed me to be able to:
     - Maintain a clear overview of project progress for review when I returned to the project
     
 
-![Kanban Board](image-1.png)
+![Kanban Board](castleloststud/readme_assets/images/kanban_board.png)
 
 ## Deployment 
 
@@ -325,3 +325,12 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 - Please note that when deploying manually you will have to deploy after each change you make to your repository.
 
 ## Testing
+
+### Manual Testing User Stories
+
+
+
+
+### Manual Testing Features
+
+Manual Testing file can be found in the [Manual Testing File](castleloststud\readme_assets\testing\manual_testing.md)
