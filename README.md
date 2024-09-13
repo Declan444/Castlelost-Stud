@@ -326,11 +326,28 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 
 ## Testing
 
+## Code Validation
+### HTML Validation
+
+HTML was validated using the [W3C Markup Validation Service](https://validator.w3.org/) for all pages. As the project uses Django templates, the HTML was validated by copying the rendered HTML from the browser into the validator.
+
+No errors and no warnings were found
+
+![HTML validation](castleloststud/readme_assets/images/html_validator_result.png)
+
+### CSS Validation
+
+No errors and no warnings were found
+
+![HTML validation](castleloststud/readme_assets/images/css_validation.png)
+
 ### Manual Testing User Stories
-
-
-
+Manual Testing file for user stories can be found in the [Manual Testing UserStory File](castleloststud/readme_assets/testing/userstory_manual_testing.md)
 
 ### Manual Testing Features
 
 Manual Testing file can be found in the [Manual Testing File](castleloststud/readme_assets/testing/manual_testing.md)
+
+## Bugs and Fixes
+
+

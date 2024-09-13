@@ -3,7 +3,7 @@
 {% load custom_filters %}
 
 {% block content %}
-<main class="bookalesson-page">
+<section class="bookalesson-page">
     <h1 class="page-title">Book a Lesson</h1>
 
     <h2 class="calendar-header">Calendar for {{ month|stringformat:"02d" }}-{{ year }}</h2>
@@ -64,5 +64,5 @@
             </tbody>
         </table>
     </div>
-</main>
+</section>
 {% endblock %}
