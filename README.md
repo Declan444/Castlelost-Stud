@@ -339,7 +339,9 @@ No errors and no warnings were found
 
 No errors and no warnings were found
 
-![HTML validation](castleloststud/readme_assets/images/css_validation.png)
+![CSS validation](castleloststud/readme_assets/images/css_validation.png)
+
+![Lighthouse Validation](castleloststud/readme_assets/images/ligthouse_validation.png)
 
 ### Manual Testing User Stories
 Manual Testing file for user stories can be found in the [Manual Testing UserStory File](castleloststud/readme_assets/testing/userstory_manual_testing.md)
