@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 document.addEventListener('DOMContentLoaded', () => {
     const timeSlotSelect = document.getElementById('timeSlot');
     const lessonDateInput = document.getElementById('lessonDate');

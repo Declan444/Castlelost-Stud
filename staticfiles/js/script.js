@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 document.addEventListener('DOMContentLoaded', function () {
     if (document.getElementById('messageModal')) {
         let myModal = new bootstrap.Modal(document.getElementById('messageModal'), {

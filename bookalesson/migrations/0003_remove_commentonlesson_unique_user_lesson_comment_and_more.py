@@ -7,7 +7,10 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("bookalesson", "0002_rename_bookings_booking_rename_lessontype_lesson"),
+        (
+            "bookalesson",
+            "0002_rename_bookings_booking_rename_lessontype_lesson",
+        ),
     ]
 
     operations = [

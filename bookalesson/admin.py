@@ -28,7 +28,11 @@ class BookingAdmin(admin.ModelAdmin):
         "booking_date",
     )
     list_filter = ("status", "lesson_date", "lesson_type", "instructor")
-    search_fields = ("user__username", "lesson_type__title", "instructor__name")
+    search_fields = (
+        "user__username",
+        "lesson_type__title",
+        "instructor__name",
+    )
 
 
 @admin.register(CommentOnLesson)

@@ -177,7 +177,8 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="commentonlesson",
             constraint=models.UniqueConstraint(
-                fields=("author", "lesson_type"), name="unique_user_lesson_comment"
+                fields=("author", "lesson_type"),
+                name="unique_user_lesson_comment",
             ),
         ),
     ]
