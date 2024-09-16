@@ -341,7 +341,23 @@ No errors and no warnings were found
 
 ![CSS validation](castleloststud/readme_assets/images/css_validation.png)
 
-![Lighthouse Validation](castleloststud/readme_assets/images/ligthouse_validation.png)
+### Lighthouse Test
+
+![Lighthouse Validation](castleloststud/readme_assets/images/lighthouse_result.png)
+
+### JSHint Validator
+
+Bookings.js Code
+
+![JSHint bookings.js Test](castleloststud/readme_assets/images/js_linter_bookings.png)
+
+Comments.js Code
+
+![JSHint comments.js Test](castleloststud/readme_assets/images/js_linter_comments.png)
+
+Script.js Code
+
+![JSHint script.js Test](castleloststud/readme_assets/images/js_linter_script.png)
 
 ### Manual Testing User Stories
 Manual Testing file for user stories can be found in the [Manual Testing UserStory File](castleloststud/readme_assets/testing/userstory_manual_testing.md)
