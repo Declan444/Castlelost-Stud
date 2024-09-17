@@ -1,3 +1,4 @@
+# Necessary modules and dependencies
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect, reverse
@@ -13,8 +14,12 @@ import calendar
 from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
+# Lesson List View
+#------------------------------------------------
 class LessonList(generic.ListView):
+    """
+    View to list all lessons available
+    """
     model = Lesson
     template_name = "bookalesson/lessons.html"
     context_object_name = "lessons_list"
@@ -22,11 +27,16 @@ class LessonList(generic.ListView):
     def get_queryset(self):
         return Lesson.objects.all
 
-
+# Lesson Detail View
+#------------------------------------------------
 def lessons_detail(request, slug):
+    """
+    View to show the details of a specific lesson,
+    including lesson dates and comments.
+    """
     lesson = get_object_or_404(Lesson, slug=slug)
 
-    # how all the lesson dates for the specific user if authenticated
+    # Show all the lesson dates for the specific user if authenticated
     if request.user.is_authenticated:
         lesson_dates = LessonDate.objects.filter(
             lesson=lesson, user=request.user
@@ -35,7 +45,7 @@ def lessons_detail(request, slug):
         lesson_dates = LessonDate.objects.filter(lesson=lesson).order_by(
             "date", "start_time"
         )
-
+    # Handle Post request for adding comments
     if request.method == "POST":
         # check if user is logged in
         if not request.user.is_authenticated:
@@ -50,13 +60,14 @@ def lessons_detail(request, slug):
             comment.author = request.user
             comment.lesson_type = lesson
 
+            #check of the lesson date belongs to the user
             lesson_date = comment.lesson_date
             if lesson_date and lesson_date.user != request.user:
-
                 messages.error(
                     request, "You can only comment on a lesson that you had."
                 )
                 return redirect("lessons_detail", slug=slug)
+            
             # check if user has commented on this lesson
             if CommentOnLesson.objects.filter(
                 author=request.user,
@@ -82,6 +93,7 @@ def lessons_detail(request, slug):
     )
     comment_count = comments.filter(approved=True).count()
 
+    #Render the lesson detaul template
     return render(
         request,
         "bookalesson/lessons_detail.html",
@@ -94,7 +106,8 @@ def lessons_detail(request, slug):
         },
     )
 
-
+# Edit Comment View
+#-------------------------------------------------
 def comment_edit(request, slug, comment_id):
     """
     View to edit comments
@@ -112,6 +125,7 @@ def comment_edit(request, slug, comment_id):
     else:
         correct_lesson_date_str = "Not available"
 
+    # Handle POST request to update comment
     if request.method == "POST":
         comment_form = CommentForm(
             data=request.POST, instance=comment, lesson_dates=lesson_dates
@@ -155,16 +169,16 @@ def comment_edit(request, slug, comment_id):
     }
     return redirect(reverse("lessons_detail", args=[slug]))
 
-
+# Delete Comment View
+#------------------------------------------------
 def comment_delete(request, slug, comment_id):
     """
     View to delete a comment.
     """
-    # get the Lesson
     post = get_object_or_404(Lesson, slug=slug)
     comment = get_object_or_404(CommentOnLesson, pk=comment_id)
 
-    # check if the user authorised
+    # check if the user authorised to delete the comment
     if comment.author == request.user:
         comment.delete()
         messages.success(request, "Comment deleted successfully!")
@@ -173,14 +187,19 @@ def comment_delete(request, slug, comment_id):
 
     return redirect(reverse("lessons_detail", args=[slug]))
 
-
+# Book a Lesson View
+#------------------------------------------------
 def book_a_lesson(request):
+    """
+    View for users to book a lesson
+    """
     today = datetime.now().date()
     today_date_str = today.strftime("%d-%m-%Y")
 
     year = request.GET.get("year", today.year)
     month = request.GET.get("month", today.month)
 
+    # Ensure that year and month are valid
     try:
         year = int(year)
         month = int(month)
@@ -190,15 +209,17 @@ def book_a_lesson(request):
     if month < 1 or month > 12:
         return HttpResponseBadRequest("Month must be between 1 and 12.")
 
+    # Calculate the previous and next months/years
     prev_year = year - 1 if month == 1 else year
     prev_month = 12 if month == 1 else month - 1
     next_year = year + 1 if month == 12 else year
     next_month = 1 if month == 12 else month + 1
 
+    # Create a calendar for the month
     cal = calendar.Calendar(firstweekday=6)
     month_days = cal.monthdayscalendar(year, month)
 
-    # Change dates_status to a dictionary
+    # Create a dictionary of dates and their booking status
     dates_status_dict = {}
     for week in month_days:
         for day in week:
@@ -227,9 +248,13 @@ def book_a_lesson(request):
 
     return render(request, "bookalesson/book_a_lesson.html", context)
 
-
+# Time Slots for Date View
+#------------------------------------------------
 @login_required
 def timeslots_for_date(request, date):
+    """
+    View to display the available timeslots for a given date
+    """
     try:
         # Expecting date in dd-mm-yyyy format
         date_obj = datetime.strptime(date, "%d-%m-%Y").date()
@@ -284,9 +309,13 @@ def timeslots_for_date(request, date):
 
     return render(request, "bookalesson/timeslots.html", context)
 
-
+# Booking Form View
+#------------------------------------------------
 @login_required
 def booking_form(request, date, slot):
+    """
+    View to handle booking form submission
+    """
     print(f"Received date: {date}, slot: {slot}")
     try:
 
@@ -396,8 +425,12 @@ def booking_form(request, date, slot):
 
     return render(request, "bookalesson/booking_form.html", context)
 
-
+# Contact Us View
+#------------------------------------------------
 def contact_us(request):
+    """
+    View to handle the contact form submission
+    """
     if request.method == "POST":
         name = request.POST.get("name")
         email = request.POST.get("email")
