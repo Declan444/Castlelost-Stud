@@ -359,6 +359,12 @@ Script.js Code
 
 ![JSHint script.js Test](castleloststud/readme_assets/images/js_linter_script.png)
 
+### CI Phyton Linter
+
+This is an example of the views.py result. All other python code pages were checked in CI Phython linter.
+
+![CI Python Linter Test](castleloststud/readme_assets/images/python_validation.png)
+
 ### Manual Testing User Stories
 Manual Testing file for user stories can be found in the [Manual Testing UserStory File](castleloststud/readme_assets/testing/userstory_manual_testing.md)
 

@@ -105,7 +105,10 @@ def comment_edit(request, slug, comment_id):
 
     correct_lesson_date = comment.lesson_date
     if correct_lesson_date:
-        correct_lesson_date_str = f"{correct_lesson_date.date} from {correct_lesson_date.start_time} to {correct_lesson_date.end_time}"
+        correct_lesson_date_str = (
+            f"{correct_lesson_date.date} from {correct_lesson_date.start_time}"
+            f"to {correct_lesson_date.end_time}"
+            )
     else:
         correct_lesson_date_str = "Not available"
 
@@ -124,18 +127,22 @@ def comment_edit(request, slug, comment_id):
             except IntegrityError:
                 messages.error(
                     request,
-                    f"You have selected an incorrect lesson date. The correct lesson date is: {correct_lesson_date_str}. "
-                    "Please ensure your lesson dates are correct and try again.",
+                    f"You have selected an incorrect lesson date."
+                    " The correct lesson date is:"
+                    f"{correct_lesson_date_str}. "
+                    "Please ensure your lesson dates are correct"
+                    " and try again.",
                 )
         else:
             messages.error(
                 request,
-                "Error updating comment! Please ensure all fields are correctly filled.",
+                "Error updating comment!"
+                "Please ensure all fields are correctly filled.",
             )
     else:
         comment_form = CommentForm(
-            instance=comment, lesson_dates=lesson_dates
-        )
+            instance=comment,
+            lesson_dates=lesson_dates)
 
     context = {
         "comment_form": comment_form,
@@ -317,7 +324,8 @@ def booking_form(request, date, slot):
             lesson = Lesson.objects.get(pk=lesson_id)
             instructor = Instructor.objects.get(pk=instructor_id)
             print(
-                f"Retrieved lesson: {lesson.title}, instructor: {instructor.name}"
+                f"Retrieved lesson: {lesson.title},"
+                f"instructor: {instructor.name}"
             )
         except (Lesson.DoesNotExist, Instructor.DoesNotExist):
             messages.error(
@@ -337,7 +345,10 @@ def booking_form(request, date, slot):
             )
             # Create a unique slug
             while LessonDate.objects.filter(slug=lesson_date.slug).exists():
-                lesson_date.slug = f"{date}-{slot.replace(':', '-')}-{LessonDate.objects.count()}"
+                lesson_date.slug = (
+                    f"{date}-{slot.replace(':', '-')}-"
+                    f"{LessonDate.objects.count()}"
+                )
             lesson_date.save()
             print(f"Created new lesson_date with slug: {lesson_date.slug}")
 
@@ -359,13 +370,16 @@ def booking_form(request, date, slot):
         )
         booking.save()
         print(
-            f"Created booking for user: {user.username}, lesson: {lesson.title}, instructor: {instructor.name}"
+            f"Created booking for user: {user.username},"
+            f" lesson: {lesson.title}, instructor: {instructor.name}"
         )
 
         # Generate a detailed success message
         success_message = (
-            f"Your booking for the lesson '{lesson.title}' with instructor '{instructor.name}' "
-            f"on {date} from {slot_time} to {end_time} has been received and is pending approval by the instructor."
+            f"Your booking for the lesson '{lesson.title}'"
+            f"with instructor '{instructor.name}'"
+            f" on {date} from {slot_time} to {end_time}"
+            f" has been received and is pending approval by the instructor."
         )
         messages.success(request, success_message)
         return redirect("book_a_lesson")

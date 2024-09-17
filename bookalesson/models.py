@@ -52,7 +52,10 @@ class LessonDate(models.Model):
     )
 
     def __str__(self):
-        return f"{self.lesson.title} on {self.date} from {self.start_time} to {self.end_time}"
+        return (
+            f"{self.lesson.title} on {self.date} from {self.start_time}"
+            f" to {self.end_time}"
+        )
 
 
 class Booking(models.Model):
@@ -72,7 +75,10 @@ class Booking(models.Model):
     booking_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Booking by {self.user.username} for {self.lesson_type} with {self.instructor.name}"
+        return (
+            f"Booking by {self.user.username} for {self.lesson_type}"
+            f" with {self.instructor.name}"
+        )
 
 
 class CommentOnLesson(models.Model):
@@ -101,4 +107,7 @@ class CommentOnLesson(models.Model):
         ]
 
     def __str__(self):
-        return f"Comment by {self.author} on {self.lesson_type.title} on {self.lesson_date}"
+        return (
+            f"Comment by {self.author} on {self.lesson_type.title}"
+            f" on {self.lesson_date}"
+        )
