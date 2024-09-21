@@ -1,33 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Your Booked Lessons</h2>
+<section class='user-booking-page'>
+    <h2 class="user-bookings-header">Your Booked Lessons</h2>
 
     {% if bookings %}
-    <table>
-        <thead>
-            <tr>
-                <th>Lesson</th>
-                <th>Instructor</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for booking in bookings%}
-            <tr>
-                <td>{{ booking.lesson_type.title}}</td>
-                <td>{{ booking.instructor.name}}</td>
-                <td>{{ booking.lesson_date.date|date:'d M Y' }}</td>
-                <td>{{ booking.lesson_date.start_time|time:'H:i' }}</td>
-                <td>{{ booking.get_status_display}}</td>
-            </tr>
-        {% endfor%}
-        </tbody>
-    </table>
+    <div class="bookings-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Lesson</th>
+                    <th>Instructor</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings%}
+                <tr>
+                    <td>{{ booking.lesson_type.title}}</td>
+                    <td>{{ booking.instructor.name}}</td>
+                    <td>{{ booking.lesson_date.date|date:'d M Y' }}</td>
+                    <td>{{ booking.lesson_date.start_time|time:'H:i' }}</td>
+                    <td>{{ booking.get_status_display}}</td>
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
     {% else %}
     <p>You have no booked lessons at this moment.</p>
     {% endif %}
-
-    {% endblock %}
+</section>
+{% endblock %}
