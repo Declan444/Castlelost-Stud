@@ -439,3 +439,18 @@ def contact_us(request):
         return JsonResponse({"success": True})
 
     return render(request, "bookalesson/contact_us.html")
+
+# User Booking List View
+#------------------------------------------------
+@login_required
+def user_bookings_list(request):
+    """
+    View to list all the lessons the user has booked
+    """
+    user = request.user
+    # Get all bookings for the current user
+    bookings = Booking.objects.filter(user=user).select_related('lesson_date', 'lesson_type', 'instructor')
+    context = {
+        'bookings':bookings,
+    }
+    return render(request, 'bookalesson/user_bookings.html', context)

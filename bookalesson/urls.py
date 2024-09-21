@@ -7,6 +7,7 @@ urlpatterns = [
     path("", TemplateView.as_view(template_name="index.html"), name="home"),
     path("lessons/", views.LessonList.as_view(), name="lessons"),
     path("contact/", views.contact_us, name="contact_us"),
+    path('my-bookings/', views.user_bookings_list, name='user_bookings_list'),
     path(
         "<slug:slug>/edit_comment/<int:comment_id>",
         views.comment_edit,
@@ -29,4 +30,5 @@ urlpatterns = [
         name="booking_form",
     ),
     path("<slug:slug>/", views.lessons_detail, name="lessons_detail"),
+    
 ]
