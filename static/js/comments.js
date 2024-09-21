@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const lessonDateInput = document.getElementById('lessonDate');
   const lessonTypeSelect = document.getElementById('lessonType');
   const instructorSelect = document.getElementById('instructor');
+  
 
   // Function to populate time slots
   function populateTimeSlots() {
@@ -52,6 +53,7 @@ for (let button of editButtons) {
     commentText.value = commentContent;
     submitButton.innerText = "Update";
     commentForm.setAttribute("action", `edit_comment/${commentId}`);
+    commentText.scrolllIntoView({bahavour: 'smooth '});
   });
 }
 
