@@ -53,7 +53,7 @@ for (let button of editButtons) {
     commentText.value = commentContent;
     submitButton.innerText = "Update";
     commentForm.setAttribute("action", `edit_comment/${commentId}`);
-    commentText.scrollIntoView({bahavour: 'smooth '});
+    commentText.scrollIntoView({bahavior: 'smooth '});
   });
 }
 
