@@ -372,6 +372,20 @@ Manual Testing file for user stories can be found in the [Manual Testing UserSto
 
 Manual Testing file can be found in the [Manual Testing File](castleloststud/readme_assets/testing/manual_testing.md)
 
+### Automated Testing
+
+Automated Testing was carried out using the local sqlite3 database. This was configured in the settings.py file for test. This allowed me to carry out the tests on this db only.
+
+Automated Testing file can be found in the [Automated Testing File](castleloststud/readme_assets/testing/automated_testing.md)
+
 ## Bugs and Fixes
+
+
+
+## Late additions 
+
+### User Bookings Page
+
+Upon review and recommendation I have added a user booking list called My Bookings Link to the site. This appears when the user logs in and they can click the My Bookings link to see all of their bookings for Lesson, Instructor, Date, Time and Status. When the user scrolls down the page the row is highlighted for a better user experience.
 
 
