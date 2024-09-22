@@ -303,7 +303,7 @@ body {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 33vh;
+    height: 20vh;
     width: 100%;
 }
 
@@ -880,6 +880,7 @@ p {
 .bookings-table table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .bookings-table th {
@@ -911,4 +912,75 @@ p {
     margin: 20px 0;
     color: white;
     font-weight: bolder;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .bookings-table th, 
+    .bookings-table td {
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .bookings-table th,
+    .bookings-table td {
+        padding: 6px;
+        font-size: 0.9em;
+    }
+
+    .bookings-table table {
+        display: block;
+        overflow-x: auto; /* Adds horizontal scrolling for smaller screens */
+        white-space: nowrap; /* Prevents table from breaking into rows */
+    }
+
+    .bookings-table th,
+    .bookings-table td {
+        display: block;
+        text-align: left; /* Aligns text to left for smaller screens */
+    }
+
+    .bookings-table tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .bookings-table td:before {
+        content: attr(data-label); /* Adds labels before table data on small screens */
+        font-weight: bold;
+        display: block;
+        text-transform: uppercase;
+        color: #445261;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .bookings-table {
+        font-size: 0.1em;
+        /* Adjusts font size for better fit */
+    }
+
+    .bookings-table th,
+    .bookings-table td {
+        font-size: 1.0vw; /* Responsive font size based on viewport width */
+        word-break: break-word; /* Allows breaking long words */
+        white-space: normal; /* Ensures text wraps onto new lines if necessary */
+    }
+}
+
+.comment-heading {
+    color: black;
+}
+
+@media screen and (max-width: 754px) {
+    .masthead {
+        margin-top: 10px;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        
+        width: 100%;
+    }
+    
 }

@@ -50,10 +50,11 @@ for (let button of editButtons) {
   button.addEventListener("click", (e) => {
     let commentId = e.target.getAttribute("comment_id");
     let commentContent = document.getElementById(`comment${commentId}`).innerText;
+    console.log('Edit button clicked for coment ID: ${commentId');
     commentText.value = commentContent;
     submitButton.innerText = "Update";
     commentForm.setAttribute("action", `edit_comment/${commentId}`);
-    commentText.scrollIntoView({bahavour: 'smooth '});
+    commentText.scrollIntoView({bahavior: 'smooth '});
   });
 }
 
