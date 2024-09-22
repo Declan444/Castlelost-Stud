@@ -40,7 +40,6 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row">
         <div class="col card mb-4 mt-3 left top">
@@ -48,7 +47,7 @@
                 <!-- The post content goes inside the card-text. -->
                 <p class="card-text">
                     {{ lesson.content | safe }}
-                
+
             </div>
         </div>
     </div>
@@ -73,7 +72,7 @@
                 {% if not comment.approved and comment.author == user %}
                 faded{% elif not comment.approved %} d-none{% endif %}">
                     <p class="font-weight-bold">
-                         {{ comment.author }}
+                        {{ comment.author }}
                         <span class="font-weight-normal">
                             {{ comment.created_on }} -
                             <em>{{ comment.lesson_date }}</em>

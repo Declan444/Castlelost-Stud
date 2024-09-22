@@ -8,7 +8,9 @@ def get_default_lesson_date():
     return timezone.now().date()
 
 
-# Create your models here.
+
+# Instructor Model
+#------------------------------------------------
 class Instructor(models.Model):
     name = models.CharField(max_length=200)
     bio = models.TextField()
@@ -18,7 +20,8 @@ class Instructor(models.Model):
     def __str__(self):
         return f"Instructor: {self.name}"
 
-
+# Lesson Model
+#------------------------------------------------
 class Lesson(models.Model):
     LESSON_CHOICES = (
         ("beginner", "Beginner"),
@@ -38,7 +41,8 @@ class Lesson(models.Model):
     def __str__(self):
         return f"{self.title}"
 
-
+# Lesson Date Model
+#------------------------------------------------
 class LessonDate(models.Model):
     date = models.DateField()
     start_time = models.TimeField()
@@ -57,7 +61,8 @@ class LessonDate(models.Model):
             f" to {self.end_time}"
         )
 
-
+# Booking Model
+#------------------------------------------------
 class Booking(models.Model):
     STATUS_CHOICES = (
         ("pending", "Pending Approval"),
@@ -80,7 +85,8 @@ class Booking(models.Model):
             f" with {self.instructor.name}"
         )
 
-
+# Comment on Lesson Model
+#------------------------------------------------
 class CommentOnLesson(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     lesson_type = models.ForeignKey(
