@@ -3,109 +3,12 @@
 /* Fixed Navbar Styles */
 .navbar {
     position: fixed;
-
     top: 0;
     left: 0;
     width: 100%;
-
     z-index: 1000;
-
+    
 }
-
-body {
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-    background-color: #f8f9fa;
-}
-
-
-
-/* Main Background */
-.main-bg {
-    background-color: #ffffff;
-
-}
-
-/* Hero Section Styles */
-.hero-section {
-    position: relative;
-    background: url('/static/images/horseandfoal.jpg') no-repeat center/cover;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-
-    text-align: center;
-    padding: 0 20px;
-}
-
-/* Hero Section Overlay */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-
-    z-index: 1;
-}
-
-
-/* Styles for the lessons.html page */
-.lessons-page {
-    background-image: url('/static/images/hollyjumping.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.9;
-
-    min-height: 100vh;
-
-    padding-top: 20px;
-
-    position: relative;
-}
-
-.lessons-page .card {
-    background-color: rgba(255, 255, 255, 0.8);
-
-    border-radius: 5%;
-    border: 2px solid #445261;
-}
-
-.lessons-page .card-title,
-.lessons-page .card-text {
-    color: #333;
-
-}
-
-.mt-5 {
-    margin-top: 0px;
-}
-
-.card-body {
-    flex: 1 1 auto;
-    padding: 1rem 1rem;
-
-
-}
-
-.lessons-page .card-title:hover {
-    background-color: #445261;
-
-    color: #ffffff;
-
-}
-
-/* Container Styles */
-.container {
-    position: relative;
-    z-index: 2;
-
-}
-
 /* Navigation Styles */
 .navbar {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -127,44 +30,111 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-
     text-decoration: underline;
     color: white;
+}
 
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* Main Background */
+.main-bg {
+    background-color: #ffffff;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    background: url('/static/images/horseandfoal.jpg') no-repeat center/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Hero Section Overlay */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Styles for the lessons.html page */
+.lessons-page {
+    background-image: url('/static/images/hollyjumping.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    min-height: 100vh;
+    padding-top: 20px;
+    position: relative;
+}
+
+.lessons-page .card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5%;
+    border: 2px solid #445261;
+}
+
+.lessons-page .card-title,
+.lessons-page .card-text {
+    color: #333;
+}
+
+.mt-5 {
+    margin-top: 4rem !important;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+
+.lessons-page .card-title:hover {
+    background-color: #445261;
+    color: #ffffff;
+}
+
+/* Container Styles */
+.container {
+    position: relative;
+    z-index: 2;
 }
 
 /* Footer Styles */
 .footer {
     background-color: #7ca9da;
-
     color: #ffffff;
-
     padding: 1rem 0;
     text-align: center;
 }
 
 .footer i {
     color: #ffffff;
-
     font-size: 1.25rem;
-
     margin: 0 0.5rem;
     transition: color 0.3s ease;
-
 }
 
 .footer i:hover {
     color: #007bff;
-
 }
 
-
-
+/* Alerts */
 Alerts .alert {
     margin-top: 1rem;
     padding-top: 1rem;
     border-radius: 0.25rem;
-
     width: auto;
     max-width: 90vw;
     height: auto;
@@ -172,17 +142,33 @@ Alerts .alert {
     background-color: #445261;
     border-color: #445261;
 }
-
+/*
 .alert-success {
     color: #131715;
     background-color: #718a7f;
     border-color: #829b90;
+}*/
+.alert-success {
+    background-color: #445261;
+    border-color: #c3e6cb;
+    color: white;
+    margin-top: 80px;
+    padding-top: 1rem;
+    border-radius: 0.25rem;
+    width: auto;
+    max-width: 90vw;
+    height: auto;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
 }
 
 /* Custom Button Styles */
 .btn-primary {
     background-color: #445261;
-
     border-color: #20423d;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -198,23 +184,17 @@ Alerts .alert {
 @media (max-width: 768px) {
     .navbar-brand {
         font-size: 1.25rem;
-
     }
-
     .hero-section {
         padding: 0 10px;
-
     }
 }
-
 
 /* Features Section */
 .features {
     background-color: #f8f9fa;
-
     padding-top: 3rem;
     padding-bottom: 3rem;
-
 }
 
 .feature-card {
@@ -225,12 +205,7 @@ Alerts .alert {
     text-align: center;
     padding: 2rem;
     margin: 0 auto;
-
-
 }
-
-
-
 
 /* Hover Effect for Feature Cards */
 .feature-card:hover {
@@ -416,27 +391,6 @@ body {
     max-width: 100%;
     overflow: auto;
     box-sizing: border-box;
-
-
-}
-
-.alert-success {
-    background-color: #445261;
-    border-color: #c3e6cb;
-    color: white;
-    margin-top: 80px;
-    padding-top: 1rem;
-    border-radius: 0.25rem;
-    width: auto;
-    max-width: 90vw;
-    height: auto;
-}
-
-
-.alert-danger {
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-    color: #721c24;
 }
 
 /* Book a lesson page */
@@ -470,7 +424,6 @@ body {
 }
 
 .nav-link {
-
     text-decoration: none;
     font-weight: bold;
     padding: 5px 10px;
@@ -501,26 +454,23 @@ body {
 .calendar-table th,
 .calendar-table td {
     word-wrap: break-word;
-    /* Ensures content wraps within the cells */
     overflow: hidden;
-    /* Prevents overflow from cells */
     text-overflow: ellipsis;
-    /* Adds ellipsis for overflowing text */
+    border: 1px solid #e0e0e0;
+    padding: 7px;
+    text-align: center;
 }
 
 @media screen and (max-width: 440px) {
     .calendar-table {
         font-size: 0.9em;
-        /* Adjusts font size for better fit */
     }
 }
-
+/*
 .calendar-table th,
 .calendar-table td {
-    border: 1px solid #e0e0e0;
-    padding: 7px;
-    text-align: center;
-}
+    
+}*/
 
 .calendar-table th {
     background-color: rgba(68, 82, 97, 0.7);
@@ -550,8 +500,7 @@ body {
     color: #cccccc;
 }
 
-
-
+/* Book A Lesson Page */
 .bookalesson-page {
     background-image: url('/static/images/hollyjumping.jpg');
     background-size: cover;
@@ -565,8 +514,7 @@ body {
     box-sizing: border-box;
 }
 
-
-/* about page */
+/* Instructors Page */
 .about-section {
     background-image: url('/static/images/horseandfoal.jpg');
     background-size: cover;
@@ -619,7 +567,6 @@ body {
     text-align: center;
 }
 
-
 /* Timeslot Table Styling */
 .timeslot-table {
     width: 100%;
@@ -648,7 +595,6 @@ body {
     text-align: center;
 }
 
-
 .timeslot-table a {
     color: #445261;
     font-weight: bold;
@@ -659,16 +605,13 @@ body {
     display: inline-block;
     text-align: center;
     transition: background-color 0.3s, color 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
-    ;
 }
-
 
 .timeslot-table a:hover {
     background-color: #37424f;
     color: #ffffff;
     border-radius: 5px;
     padding: 5px;
-
 }
 
 /* Unavailable Slot Styling */
@@ -679,7 +622,6 @@ body {
 }
 
 /* Booking form Page Styling */
-
 .booking-form-section {
     background-image: url('/static/images/horseandfoal.jpg');
     background-size: cover;
@@ -702,7 +644,6 @@ form {
     border: 2px solid #445261;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
 }
 
 h3,
@@ -731,13 +672,9 @@ h4 {
     color: #445261;
     font-size: 16px;
     box-sizing: border-box;
-
-    /* Ensure default appearance */
     appearance: auto;
     -webkit-appearance: auto;
-    /* WebKit browsers */
     -moz-appearance: auto;
-    /* Mozilla browsers */
 }
 
 /* Button Styling */
@@ -751,14 +688,12 @@ h4 {
     text-align: center;
     display: inline-block;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-
 }
 
 /* Button Hover Effect */
 .btn-primary:hover {
     background-color: #37424f;
     border-color: #37424f;
-
 }
 
 /* logout page */
@@ -820,7 +755,6 @@ h4 {
 
 .contact-header {
     font-weight: bold;
-
 }
 
 .contact-text {
