@@ -57,7 +57,9 @@ The site is designed for anybody interested in horse riding. This includes begin
 
 9. [Unsolved Issues and Bugs](#unsolved-issues-and-bugs)
 
-10. [Credits](#credits)
+10. [Future Developments](#future-developments)
+
+11. [Credits](#credits)
 
 ## Features
 
@@ -268,12 +270,20 @@ A LessonDate can have many comments, but each comment is linked to a specific Le
     - Python
 
 ### Frameworks & Libraries
-    - Django 4.2.14
-    - Bootstrap 5.0.1
-    - Cloudinary 1.36.0
-    - dj3-cloudinary-storage 0.0.6
-    - Gunicorn 20.1.0
-    - Whitenoise 5.3.0
+The following resources were used to help implement the website:
+- [GitHub](https://github.com/) for creating and storing files and folders of the website.
+- **Git** was used for version control.
+- **VScode** editor for writing the code.
+- [Heroku](https://www.heroku.com) for accessing and storing my project.
+- [Django](https://www.djangoproject.com/) Python framework for the overall project implementation.
+- [Bootstrap](https://getbootstrap.com/) CSS framework that allowed to implement various styled elements, including modals. It was also used for quick and easy styling of the overall website.
+- [Lucidchart](https://lucid.app/) for creating flowchart of the game.
+- [CI Python Linter](https://pep8ci.herokuapp.com/#) for validating and checking my code for best code practices.
+- [Whitenoise](https://whitenoise.readthedocs.io/en/stable/index.html) Python library used for handling static files.
+- [Django allauth](https://allauth.org/) authentication solution for Django framework used for allowing users to register and login.
+- [Django summernote](https://summernote.org/) Javascript library used for providing useful editing tools for Django admin site. 
+
+Other libraries and dependencies can be seen in the requirements.txt file. 
 
 See requirements.txt for full list.
 
@@ -380,7 +390,55 @@ Automated Testing file can be found in the [Automated Testing File](castlelostst
 
 ## Bugs and Fixes
 
+One challenging aspect of this build was ensuring that any date in the past would be non-active, preventing users from booking a date or lesson that had already passed. After many failed attempts, I implemented the following code in my `book_a_lesson` view. This code creates a dictionary that tracks whether each day of a given month is in the past. It loops through the month’s days, formats each day as a string, and checks if it is before today. The result is stored in `dates_status_dict`.
 
+
+dates_status_dict = {}
+for week in month_days:
+    for day in week:
+        if day:
+            day_formatted = f"{day:02d}"
+            month_formatted = f"{month:02d}"
+            year_formatted = f"{year:04d}"
+            day_date_str = (
+                f"{day_formatted}-{month_formatted}-{year_formatted}"
+            )
+            day_date = datetime.strptime(day_date_str, "%d-%m-%Y").date()
+            is_past = day_date < today
+            dates_status_dict[day_date_str] = is_past
+
+context = {
+    "year": year,
+    "month": month,
+    "prev_year": prev_year,
+    "prev_month": prev_month,
+    "next_year": next_year,
+    "next_month": next_month,
+    "month_days": month_days,
+    "today_date_str": today_date_str,
+    "dates_status": dates_status_dict,  # Pass as a dictionary
+}
+ 
+I then created this code a custom template filter get_item which allows the template and retrieve booking status from the dates_status_dict by using the date string as a key.
+ 
+@register.filter(name="get_item")
+def get_item(dictionary, key):
+    return dictionary.get(key, "Not Found")
+
+Then I use the get_item in the template
+{% if dates_status|get_item:day_date_str %}
+
+This solved my problem and all dates past are not active so the user cannot book a lesson that is in the past.
+
+Another problem I had was when a user clicked the edit button in the comments section on mobile device, the screen stayed on the button and did not jump to the edit comment text box. This was confusing for the user as it seemed that nothing happened. I solved this by adding  commentText.scrollIntoView({bahavior: 'smooth '}); line of code to the comments.js file. While seems easy, took a while to get to work. 
+
+## Unsolved Issues and Bugs
+
+A bug I believe is that a user can book a lesson. They can then go and make a comment about the lesson even before they have had the lesson. Why a user would do this I am not sure but it can happen.
+
+## Future Developments
+
+As mentioned above I would build code to only allow the user to be able to comment on a lesson after the lesson had happened.  There are no email communications in this project and therefore I would build into the project that the user gets notified of the booking of a lesson via email. Then when the instructor confirms the lesson that the user again gets notified via email and then two days before the lesson the user get a reminder of the lesson. Also after the lesson the user would receive an email asking them about their lesson and letting them know that they can leave a comment on the site.
 
 ## Late additions 
 
@@ -388,4 +446,12 @@ Automated Testing file can be found in the [Automated Testing File](castlelostst
 
 Upon review and recommendation I have added a user booking list called My Bookings Link to the site. This appears when the user logs in and they can click the My Bookings link to see all of their bookings for Lesson, Instructor, Date, Time and Status. When the user scrolls down the page the row is highlighted for a better user experience.
 
+## Credits
+
+## Credits
+I'd like to thank Spencer Barriball, my mentor at Code Institute, for giving me valuable guidance and support throught the duration of this project. The majority of my learning came from the Code Institute course content and the Blog Walk Through. This allowed me to set our the structure of the site and to create the backbone of the site from which to build. Without this starting point and both the walkthrough course content and the videos, it would have been impossible. I used numerous videos to solve different problems that I faced and example being how to add a calendar to your website - Django wednesday #2 gave me a youtube video on exactly that which again I used as a starting point. A constant go to that I use is https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide as suggested by my mentor. I always use https://www.w3schools.com/ as a go to for all code understanding ranging from python to bootstrap to javascript. I used https://learndjango.com/tutorials/customizing-django-404-and-500-error-pages for error pages and other areas of django.
+
+
+## Content
+All of text and code in this project was generated by myself.
 
