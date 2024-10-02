@@ -461,11 +461,17 @@ body {
     text-align: center;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 460px) {
     .calendar-table {
         font-size: 0.9em;
     }
 }
+
+/*
+.calendar-table th,
+.calendar-table td {
+    
+}*/
 
 .calendar-table th {
     background-color: rgba(68, 82, 97, 0.7);
@@ -843,12 +849,10 @@ p {
 }
 
 @media screen and (max-width: 440px) {
-    .bookings-table td {
-        padding: 0px;
-    }
-
-    .bookings-table {
-        font-size: 0.2em;
-        float: left;
+    table {
+        font-size: 0.7em;
     }
 }
+
+
+

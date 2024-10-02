@@ -848,5 +848,11 @@ p {
     font-weight: bolder;
 }
 
+@media screen and (max-width: 440px) {
+    table {
+        font-size: 0.7em;
+    }
+}
+
 
 
