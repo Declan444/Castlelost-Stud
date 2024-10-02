@@ -18,6 +18,16 @@
         instead.
         {% endblocktrans %}
       </p>
+      {% if form.errors %}
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          {% for field, errors in form.errors.items %}
+          <li><span class="bold-error">{{ errors|striptags }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
     </div>
   </div>
   <div class="row">

@@ -461,11 +461,12 @@ body {
     text-align: center;
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 460px) {
     .calendar-table {
         font-size: 0.9em;
     }
 }
+
 /*
 .calendar-table th,
 .calendar-table td {
@@ -846,3 +847,6 @@ p {
     color: white;
     font-weight: bolder;
 }
+
+
+
