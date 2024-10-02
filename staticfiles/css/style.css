@@ -467,12 +467,6 @@ body {
     }
 }
 
-/*
-.calendar-table th,
-.calendar-table td {
-    
-}*/
-
 .calendar-table th {
     background-color: rgba(68, 82, 97, 0.7);
     color: #ffffff;

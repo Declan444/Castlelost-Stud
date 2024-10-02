@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Event listeners
-  lessonDateInput.addEventListener('change', populateTimeSlots);
+  //lessonDateInput.addEventListener('change', populateTimeSlots);
   lessonTypeSelect.addEventListener('change', populateTimeSlots);
   instructorSelect.addEventListener('change', populateTimeSlots);
 
@@ -53,7 +53,7 @@ for (let button of editButtons) {
     commentText.value = commentContent;
     submitButton.innerText = "Update";
     commentForm.setAttribute("action", `edit_comment/${commentId}`);
-    commentText.scrollIntoView({bahavior: 'smooth '});
+    commentText.scrollIntoView({behavior: 'smooth '});
   });
 }
 
