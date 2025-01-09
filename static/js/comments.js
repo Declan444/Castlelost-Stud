@@ -59,9 +59,10 @@ for (let button of editButtons) {
 
 
 for (let button of deleteButtons) {
-    button.addEventListener("click", (e) => {
-      let commentId = e.target.getAttribute("comment_id");
-      deleteConfirm.href = `delete_comment/${commentId}`;
-      deleteModal.show();
-    });
-  }
+  button.addEventListener("click", (e) => {
+    const commentId = e.target.getAttribute("data-comment-id");
+    const slug = e.target.getAttribute("data-slug");
+    deleteConfirm.href = `/${slug}/delete_comment/${commentId}`;
+    deleteModal.show();
+  });
+}
